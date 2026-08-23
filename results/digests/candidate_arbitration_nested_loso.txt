@@ -1,0 +1,30 @@
+=== gpt2 ===
+  overall_correctness: 0.7349540468425734
+  net_correct_gain: -0.0023717758671805145
+  prior_capture_rate: 0.006522383634746516
+  phantom_agreement_rate: 0.023421286688407945
+  intervention_rate: 0.049214349243996446
+  n_helped: 42
+  n_hurt: 50
+  n_no_effect: 74
+  fraction_of_fixed_errors_correctable: 0.04740406320541761
+  oracle_headroom_recovered_fraction: -0.045714285714284916
+  fold StudyB: n=846, fixed_beta=1.0, delta=0.3, intervention_rate=0.01182033096926714
+  fold StudyF: n=1067, fixed_beta=1.0, delta=0.3, intervention_rate=0.06091846298031865
+  fold StudyL: n=990, fixed_beta=1.0, delta=0.2, intervention_rate=0.051515151515151514
+  fold StudyN: n=470, fixed_beta=1.0, delta=0.3, intervention_rate=0.0851063829787234
+=== ngram5_kn ===
+  overall_correctness: 0.7903943077379187
+  net_correct_gain: -0.00948710346872228
+  prior_capture_rate: 0.018677734954046843
+  phantom_agreement_rate: 0.09101689890305366
+  intervention_rate: 0.02490364660539579
+  n_helped: 15
+  n_hurt: 47
+  n_no_effect: 22
+  fraction_of_fixed_errors_correctable: 0.022222222222222223
+  oracle_headroom_recovered_fraction: -0.24242424242424432
+  fold StudyB: n=846, fixed_beta=0.5, delta=0.3, intervention_rate=0.004728132387706856
+  fold StudyF: n=1067, fixed_beta=0.5, delta=0.3, intervention_rate=0.04779756326148079
+  fold StudyL: n=990, fixed_beta=0.25, delta=0.3, intervention_rate=0.01919191919191919
+  fold StudyN: n=470, fixed_beta=0.5, delta=0.3, intervention_rate=0.02127659574468085

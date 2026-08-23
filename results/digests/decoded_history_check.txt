@@ -1,0 +1,14 @@
+=== gpt2 (beta=1.0) ===
+  decoded_history_fused_correct: 0.7245775274236584
+  ground_truth_prefix_fused_correct: 0.7373258227097539
+  decoded_history_net_correct_gain: 0.006522383634746516
+  ground_truth_prefix_net_correct_gain: 0.019270678920841982
+  decoded_minus_ground_truth: point=-0.012748295286095467, lower=-0.020075024840833556, upper=-0.006801274762104263
+  n_selections: 3373
+=== ngram5_kn (beta=0.5) ===
+  decoded_history_fused_correct: 0.7272457752742366
+  ground_truth_prefix_fused_correct: 0.8075896827749778
+  decoded_history_net_correct_gain: 0.009190631485324638
+  ground_truth_prefix_net_correct_gain: 0.08953453898606582
+  decoded_minus_ground_truth: point=-0.08034390750074119, lower=-0.10481695079805539, upper=-0.056647597297245396
+  n_selections: 3373

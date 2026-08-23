@@ -1,0 +1,16 @@
+=== gpt2 ===
+  tau: 0.7
+  best_fixed_beta: 1.0
+  dev_gated_fused_correct: 0.6917293233082706
+  dev_best_fixed_fused_correct: 0.6944994064107638
+  dev_gated_minus_best_fixed: -0.0027700831024931594
+  n_dev_selections: 2527
+  actionable rate: 0.3700
+=== ngram5_kn ===
+  tau: 0.4
+  best_fixed_beta: 0.5
+  dev_gated_fused_correct: 0.7898694103680254
+  dev_best_fixed_fused_correct: 0.7847249703205382
+  dev_gated_minus_best_fixed: 0.005144440047487153
+  n_dev_selections: 2527
+  actionable rate: 0.2006

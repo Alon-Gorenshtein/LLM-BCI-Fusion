@@ -1,0 +1,138 @@
+Version 2 addendum step 4 (design spec S13.5) -- one-shot frozen-gate evaluation on the Study N
+holdout. Produced by scripts/run_v2_holdout_evaluation.py.
+Verbatim output, recorded whichever direction it points (design spec S13.6).
+
+Result: the frozen arbitration gate LOSES to the best fixed beta on both priors. For ngram5_kn the
+95% CI excludes zero; for gpt2 its upper bound touches zero. No retuning was performed.
+
+Read this together with the ADDENDUM at the end of this file: the gate did not clearly beat fixed-
+weight fusion on DEV either, so this is not a story about a dev-side win failing to transfer.
+
+PROVENANCE, recorded in full rather than tidied away.
+This evaluation was executed twice, and the two runs are the same computation.
+
+  Run 1, at commit fffb720. Executed before a design-spec question about where the frozen V(x) fit
+  should live had been settled. The dev-only fit was treated as the pre-registered spec rather than
+  a data-driven choice, and the run proceeded on that basis, ahead of the outstanding decision.
+
+  Run 2, at commit 7355aaa, after settling that question: the frozen fit moved into
+  fusion.arbitration.fit_net_benefit_model_frozen, so the cross-validated and frozen fits share one
+  definition of the classifier, the scaler, and the feature matrix instead of two copies.
+
+  Both runs fit both classifiers on all of dev and predict onto Study N, with no holdout label in
+  the fit path. Settling the question changed where the code lives, not what it computes. The two
+  runs are line-for-line identical apart from the newly-added gate_betas_on_grid field -- verified by
+  direct comparison, not asserted. Run 2 is reproduced below; run 1 differs only by that one field.
+
+  The result stands. The decisive fact is commit ordering, not when the design question was
+  resolved. The dev-fit/predict-on-test computation was frozen at fffb720, reasoned from design spec
+  S13.5 rather than from any preview of the outcome, and Study N was read only afterwards at
+  776e999. A design decision settled late does not retroactively contaminate a choice already locked
+  in pre-run. This is the opposite of the sequence the holdout guards against -- the choice was
+  frozen first, then the holdout was read once.
+
+gate_betas_on_grid is True for both priors here: with the best fixed beta interior (gpt2 1.0,
+ngram5_kn 0.5), every gate beta lands on BETA_GRID, so scoring dev by direct fusion and reading the
+precomputed grid row would have agreed. Recorded as a verified fact, not assumed. Dev and holdout
+both fuse directly at the exact beta regardless, so the gate stays correct when it is False (as it
+is when the best fixed beta sits at a grid edge).
+
+--- gpt2 ---
+frozen policy: {'high': 0.02, 'low': -0.2, 'dev_wide_best_fixed_beta': 1.0, 'dev_gated_fused_correct': 0.7633482604202549, 'dev_gated_net_correct_gain': 0.013089906992766132, 'gate_betas': [0.5, 1.0, 2.0], 'gate_betas_on_grid': True, 'n_dev_selections': 2903, 'dev_v_hat_mean': 0.012599272938827195, 'dev_v_hat_sd': 0.0700221176031319}
+frozen_gate net_correct_gain: 0.0468
+best_fixed net_correct_gain:  0.0596
+frozen_gate - best_fixed: -0.0128 (95% CI -0.0271 to 0.0000)
+frozen_gate fused_correct: 0.5660
+best_fixed fused_correct:  0.5787
+applied beta counts: {1.0: 381, 2.0: 89}
+test V(x) mean 0.0258 sd 0.0853
+n holdout selections: 470 (8 participants)
+
+--- ngram5_kn ---
+frozen policy: {'high': 0.2, 'low': -0.02, 'dev_wide_best_fixed_beta': 0.5, 'dev_gated_fused_correct': 0.8225973131243541, 'dev_gated_net_correct_gain': 0.07233895969686532, 'gate_betas': [0.25, 0.5, 1.0], 'gate_betas_on_grid': True, 'n_dev_selections': 2903, 'dev_v_hat_mean': 0.06777542327925991, 'dev_v_hat_sd': 0.18483520123469846}
+frozen_gate net_correct_gain: 0.1660
+best_fixed net_correct_gain:  0.1766
+frozen_gate - best_fixed: -0.0106 (95% CI -0.0212 to -0.0021)
+frozen_gate fused_correct: 0.6851
+best_fixed fused_correct:  0.6957
+applied beta counts: {0.25: 2, 0.5: 382, 1.0: 86}
+test V(x) mean 0.1351 sd 0.2646
+n holdout selections: 470 (8 participants)
+
+
+================================================================================
+ADDENDUM, added after the one-shot run. No Study N data was read to produce any of it.
+================================================================================
+
+1. THE DEV-SIDE BASELINE COMPARISON, recovered.
+
+The run above reports how the gate did against the best fixed beta on the HOLDOUT, but not how it
+did against that same baseline on DEV -- the data its own thresholds were tuned against. The
+selection step computed the baseline and discarded it. It has now been recovered by re-invoking
+fusion.final_evaluation.run_frozen_gate_selection alone, via scripts/run_v2_dev_gate_baseline.py.
+
+This is not a second read of Study N. run_frozen_gate_selection is the dev-only threshold-selection
+function; it is handed the dev half of the split and re-verifies for itself, through
+_require_dev_only, that the holdout study is absent from both of its inputs. Neither
+evaluate_on_holdout nor frozen_v_hat_by_key -- the only code paths that touch the holdout -- was
+invoked. The selection is deterministic, and the re-run reproduced every field of both policy dicts
+above line for line, which is the check that this is the same computation reported more fully.
+
+  gpt2       dev best_fixed (beta=1.0) fused_correct: 0.7630037892
+             dev gated fused_correct:                 0.7633482604
+             dev gated - best_fixed:                  +0.0003444712
+
+  ngram5_kn  dev best_fixed (beta=0.5) fused_correct: 0.8256975543
+             dev gated fused_correct:                 0.8225973131
+             dev gated - best_fixed:                  -0.0031002411
+
+Both figures are means over the same 2903 dev selections, so the comparison is like for like.
+
+This changes how the holdout result should be read. The gate did not clearly beat fixed-weight
+fusion even on its home field: a near-tie for gpt2 (+0.0003, three ten-thousandths of a selection
+rate, on the data the thresholds were chosen to maximize) and an outright loss for ngram5_kn
+(-0.0031). The holdout loss is therefore not really a story about a dev-side win failing to
+transfer. There was almost no dev-side win to transfer in the first place.
+
+The ngram5_kn case deserves a sharper statement, corrected here from an earlier draft of this note
+that had the grid's constraint backwards. The threshold search maximizes gated dev accuracy by
+construction, yet the maximum it could find (high=0.2, low=-0.02) still falls below simply holding
+beta at 0.5 for every row. Exact identity to the fixed baseline is outside the search space (see
+item 2), but the near-identity pair (high=0.2, low=-0.2) WAS available to the search and was not
+selected: ngram5_kn's search picked a narrow low (-0.02) over the available wide one (-0.2), and
+gpt2's picked a narrow high (0.02) over the available wide one (0.2). Both priors' searches
+preferred a tighter deadband -- more deviation from the fixed beta, not less -- when a
+closer-to-identity option was on the table. The ngram5_kn dev-side loss is therefore a revealed
+preference of the tuning objective, not simply a consequence of "do nothing" being unavailable.
+
+2. THE THRESHOLD GRID COULD NOT SELECT EXACT IDENTITY, BUT COULD SELECT NEAR-IDENTITY.
+
+THRESHOLD_GRID = (0.02, 0.05, 0.1, 0.2) has a ceiling of 0.2, so the widest band the search can
+express is (high=0.2, low=-0.2), and even that deviates from the best fixed beta on every row whose
+|V(x)| exceeds 0.2 -- so no (high, low) pair in the grid means "always defer to the fixed beta"
+exactly. But (high=0.2, low=-0.2) is a real, available, near-identity option (dev V(x) sd is 0.070
+for gpt2 and 0.185 for ngram5_kn, so |V(x)|>0.2 is a minority of rows), and it was not chosen by
+either prior's search -- see item 1. The grid's floor of 0.02 is the tightest, most deviation-prone
+option, not a constraint that forced deviation; the search chose tight thresholds by preference for
+gpt2's high and ngram5_kn's low, not because wider ones were unavailable.
+
+This remains a genuine limitation worth disclosing (exact identity is outside the search space,
+and a manuscript should say so), but the earlier framing here overstated it into a stronger claim
+the data does not support. This is a design choice in the spec (Task 6's brief fixed this grid),
+not repaired here. Widening the grid now, after seeing the dev-side and holdout results, would be
+retuning in exactly the contaminated order the holdout design exists to prevent. THRESHOLD_GRID is
+unchanged.
+
+3. ONE FIELD ABOVE IS PRINTED UNDER A SUPERSEDED CONVENTION.
+
+`test V(x) sd` in the two blocks above was computed with pandas' default ddof=1, while its companion
+`dev_v_hat_sd` used numpy's default ddof=0 -- two conventions for two numbers whose only purpose is
+to be compared with each other. The code now uses ddof=0 on both sides. The recorded holdout figures
+are left exactly as the one-shot run printed them rather than silently restated; their ddof=0
+equivalents follow by the exact factor sqrt(469/470) = 0.9989356:
+
+  gpt2       test V(x) sd 0.0853 (ddof=1)  ->  0.0852 (ddof=0)
+  ngram5_kn  test V(x) sd 0.2646 (ddof=1)  ->  0.2643 (ddof=0)
+
+The difference is immaterial at 470 selections and touches no result. Recorded because the recorded
+output must remain reproducible from the code that stands.

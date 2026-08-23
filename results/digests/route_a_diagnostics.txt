@@ -1,0 +1,16 @@
+=== gpt2 ===
+  Stage 1 AUROC: 0.9192, AUPRC: 0.8344
+  n_actionable: 935 of 2527
+  Stage 2 @ beta=0.25: AUROC=0.8411, AUPRC=0.8800
+  Stage 2 @ beta=0.5: AUROC=0.8391, AUPRC=0.9051
+  Stage 2 @ beta=1.0: AUROC=0.8377, AUPRC=0.9112
+  Stage 2 @ beta=2.0: AUROC=0.8414, AUPRC=0.9118
+  Stage 2 @ beta=4.0: AUROC=0.8481, AUPRC=0.9128
+=== ngram5_kn ===
+  Stage 1 AUROC: 0.9368, AUPRC: 0.7504
+  n_actionable: 507 of 2527
+  Stage 2 @ beta=0.25: AUROC=0.8422, AUPRC=0.9506
+  Stage 2 @ beta=0.5: AUROC=0.8503, AUPRC=0.9541
+  Stage 2 @ beta=1.0: AUROC=0.8603, AUPRC=0.9538
+  Stage 2 @ beta=2.0: AUROC=0.8674, AUPRC=0.9524
+  Stage 2 @ beta=4.0: AUROC=0.8945, AUPRC=0.9569

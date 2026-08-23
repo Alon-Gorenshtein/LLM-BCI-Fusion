@@ -1,0 +1,20 @@
+=== gpt2 ===
+  prior_model: gpt2
+  policy: {'tau': 0.7, 'best_fixed_beta': 1.0, 'dev_gated_fused_correct': 0.6917293233082706, 'dev_best_fixed_fused_correct': 0.6944994064107638, 'dev_gated_minus_best_fixed': -0.0027700831024931594, 'n_dev_selections': 2527}
+  route_a_net_correct_gain: 0.004728132387706856
+  best_fixed_net_correct_gain: 0.008274231678486997
+  route_a_minus_best_fixed: {'point': -0.0035460992907801418, 'lower': -0.007117596169386144, 'upper': 0.0}
+  route_a_fused_correct: 0.8617021276595744
+  best_fixed_fused_correct: 0.8652482269503546
+  n_holdout_selections: 846
+  n_holdout_participants: 18
+=== ngram5_kn ===
+  prior_model: ngram5_kn
+  policy: {'tau': 0.4, 'best_fixed_beta': 0.5, 'dev_gated_fused_correct': 0.7898694103680254, 'dev_best_fixed_fused_correct': 0.7847249703205382, 'dev_gated_minus_best_fixed': 0.005144440047487153, 'n_dev_selections': 2527}
+  route_a_net_correct_gain: 0.02009456264775414
+  best_fixed_net_correct_gain: 0.018912529550827423
+  route_a_minus_best_fixed: {'point': 0.0011820330969267157, 'lower': -0.00325256476787354, 'upper': 0.004950617707955136}
+  route_a_fused_correct: 0.8770685579196218
+  best_fixed_fused_correct: 0.875886524822695
+  n_holdout_selections: 846
+  n_holdout_participants: 18

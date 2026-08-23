@@ -1,0 +1,15 @@
+Prior,Outcome,Contrast,Difference,Lower 95% CI,Upper 95% CI
+gpt2,Net correct gain,Adaptive vs fixed,-0.0068,-0.0128,-0.0012
+gpt2,Net correct gain,Adaptive vs no-language-model floor,0.0125,0.0012,0.0238
+gpt2,Net correct gain,Oracle vs fixed,0.0519,0.0382,0.0655
+gpt2,Prior capture,Adaptive vs fixed,0.0056,0.0015,0.0104
+gpt2,Phantom agreement,Adaptive vs fixed,-0.0012,-0.0049,0.0024
+gpt2,Fused selection correctness,Adaptive vs fixed,-0.0068,-0.0128,-0.0012
+gpt2,Fused selection correctness,Oracle-to-fixed gap closed by adaptive,-0.1314,,
+ngram5_kn,Net correct gain,Adaptive vs fixed,-0.0039,-0.0096,0.0020
+ngram5_kn,Net correct gain,Adaptive vs no-language-model floor,0.0750,0.0552,0.0965
+ngram5_kn,Net correct gain,Oracle vs fixed,0.0421,0.0286,0.0563
+ngram5_kn,Prior capture,Adaptive vs fixed,0.0006,-0.0015,0.0033
+ngram5_kn,Phantom agreement,Adaptive vs fixed,-0.0033,-0.0092,0.0033
+ngram5_kn,Fused selection correctness,Adaptive vs fixed,-0.0039,-0.0096,0.0020
+ngram5_kn,Fused selection correctness,Oracle-to-fixed gap closed by adaptive,-0.0915,,
