@@ -1,0 +1,83 @@
+{
+  "prior": "gpt2",
+  "n_selections": 3373,
+  "seconds": 273.8,
+  "n_language_model_calls": 3229,
+  "mean_fixed_net_gain": 0.010080047435517344,
+  "mean_adaptive_net_gain": 0.010080047435517344,
+  "diff_adaptive_minus_fixed": 0.0,
+  "n_adaptive_better": 0,
+  "n_fixed_better": 0,
+  "folds": [
+    {
+      "n_test_participants": 9,
+      "fixed_beta": 2.0,
+      "anchor": [
+        2.0,
+        2.0
+      ],
+      "fixed_train_net_gain": 0.01037037037037037,
+      "adaptive_train_net_gain": 0.01037037037037037
+    },
+    {
+      "n_test_participants": 9,
+      "fixed_beta": 2.0,
+      "anchor": [
+        2.0,
+        2.0
+      ],
+      "fixed_train_net_gain": 0.0136986301369863,
+      "adaptive_train_net_gain": 0.0136986301369863
+    },
+    {
+      "n_test_participants": 9,
+      "fixed_beta": 2.0,
+      "anchor": [
+        2.0,
+        2.0
+      ],
+      "fixed_train_net_gain": 0.008509064002959674,
+      "adaptive_train_net_gain": 0.008509064002959674
+    },
+    {
+      "n_test_participants": 10,
+      "fixed_beta": 2.0,
+      "anchor": [
+        2.0,
+        2.0
+      ],
+      "fixed_train_net_gain": 0.00929022668153103,
+      "adaptive_train_net_gain": 0.00929022668153103
+    },
+    {
+      "n_test_participants": 10,
+      "fixed_beta": 2.0,
+      "anchor": [
+        2.0,
+        2.0
+      ],
+      "fixed_train_net_gain": 0.008527994067482388,
+      "adaptive_train_net_gain": 0.008527994067482388
+    }
+  ],
+  "ci_participant": [
+    0.0,
+    0.0
+  ],
+  "ci_crossed": [
+    0.0,
+    0.0
+  ],
+  "fixed_policy_replay": {
+    "beta": 1.0,
+    "decoded_history_fused_correct": 0.7245775274236584,
+    "ground_truth_prefix_fused_correct": 0.7373258227097539,
+    "decoded_history_net_correct_gain": 0.006522383634746516,
+    "ground_truth_prefix_net_correct_gain": 0.019270678920841982,
+    "decoded_minus_ground_truth": {
+      "point": -0.012748295286095467,
+      "lower": -0.020075024840833556,
+      "upper": -0.006801274762104263
+    }
+  }
+}

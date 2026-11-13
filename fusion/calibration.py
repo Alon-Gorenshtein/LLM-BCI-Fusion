@@ -1,7 +1,6 @@
-"""Cross-fitted temperature calibration for the neural and language-model posteriors, per the
-Version 2 addendum (design spec S13.2). Matches the companion attribution study's own calibration
+"""Cross-fitted temperature calibration for the neural and language-model posteriors, for the joint gate. Matches the companion attribution study's own calibration
 convention (a scalar temperature per source, fit by minimizing held-out negative log-likelihood of
-the true target symbol) -- this study's primary analysis (Tasks 1-10) deliberately left both
+the true target symbol) -- this study's primary analysis deliberately left both
 sources uncalibrated; this module tests whether calibrating them first changes the fixed-versus-
 adaptive picture, before any new gate is built.
 """
@@ -66,7 +65,7 @@ def run_calibrated_four_arm_comparison(prior_model: str, n_folds: int = 5) -> di
     """Dev-only (Study N excluded) re-run of the floor/fixed/adaptive/grid-oracle comparison with
     both posteriors cross-fitted-calibrated before fusion. floor/fixed/oracle are read unchanged
     from the original (uncalibrated) attribution table -- calibration only changes what the
-    adaptive arm's reliability estimator sees and what it fuses with, per design spec S13.2.
+    adaptive arm's reliability estimator sees and what it fuses with.
     """
     import sys
 

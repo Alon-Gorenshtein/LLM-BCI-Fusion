@@ -1,8 +1,7 @@
-"""Round 3 addendum, design spec S14.2 item 4: run the dev-only gate-component characterization
+"""Run the dev-only gate-component characterization
 against real data, using the already-frozen (high, low, best_fixed_beta) policy values already
-recorded in output/v2_holdout_evaluation.txt for each prior. Reading those already-recorded values
-here is not a new Study N read -- they were selected using dev data only in Task 6 of the Version 2
-addendum, and this script does not call evaluate_on_holdout or evaluate_frozen_policy.
+recorded by the one-shot holdout run (scripts/run_v2_holdout_evaluation.py) for each prior. Reading those already-recorded values
+here is not a new Study N read -- they were selected using dev data only, and this script does not call evaluate_on_holdout or evaluate_frozen_policy.
 """
 import sys
 from pathlib import Path
@@ -16,10 +15,9 @@ from fusion.arbitration_diagnostics import (
     classify_gate_deviation_outcomes,
 )
 
-# Already-frozen dev-side policy values, from output/v2_holdout_evaluation.txt's recorded
-# "frozen policy" dict for each prior (Version 2 addendum, Task 6). Verified against the file's
-# current content on 2026-08-22: matches exactly (gpt2 high=0.02/low=-0.2/best_fixed_beta=1.0;
-# ngram5_kn high=0.2/low=-0.02/best_fixed_beta=0.5).
+# Already-frozen dev-side policy values for each prior, as recorded by the one-shot holdout run
+# (scripts/run_v2_holdout_evaluation.py): gpt2 high=0.02/low=-0.2/best_fixed_beta=1.0;
+# ngram5_kn high=0.2/low=-0.02/best_fixed_beta=0.5.
 _FROZEN_POLICIES = {
     "gpt2": {"high": 0.02, "low": -0.2, "best_fixed_beta": 1.0},
     "ngram5_kn": {"high": 0.2, "low": -0.02, "best_fixed_beta": 0.5},

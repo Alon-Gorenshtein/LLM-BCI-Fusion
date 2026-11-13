@@ -1,0 +1,4 @@
+Shipped 22-prior fair comparison, oriented adaptive minus fixed (positive favors adaptive):
+  Qwen/Qwen2.5-1.5B: +0.0053 (+0.0009 to +0.0109) CI favors adaptive
+  mistralai/Mistral-7B-v0.3: +0.0062 (+0.0003 to +0.0121) CI favors adaptive
+ties 9; crosses zero 11; CI favors fixed 0; CI favors adaptive 2; total 22

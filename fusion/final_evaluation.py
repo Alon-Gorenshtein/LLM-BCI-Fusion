@@ -1,4 +1,4 @@
-"""Version 2 addendum step 4 (design spec S13.5): freeze one arbitration-gate configuration using
+"""Joint gate, final step: freeze one arbitration-gate configuration using
 only dev (Studies B, F, L), then evaluate it exactly once against the best-fixed-beta control on
 the Study N holdout. evaluate_on_holdout must be called at most once per prior_model in any real
 run of this study -- repeated calls during development would defeat the point of the holdout.
@@ -333,7 +333,7 @@ def evaluate_frozen_policy(
 
 
 def evaluate_on_holdout(prior_model: str, n_folds: int = 5) -> dict:
-    """The single, one-shot evaluation this whole addendum has been building toward: apply the
+    """The single, one-shot evaluation this analysis builds toward: apply the
     frozen gate (selected using dev alone) to Study N, and compare its net correct gain against the
     dev-selected best fixed beta, both applied to Study N for the first and only time.
     """

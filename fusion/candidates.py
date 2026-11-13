@@ -1,4 +1,4 @@
-"""Candidate collapse (design spec section 17.2 Step 1): every selection's achievable candidate
+"""Candidate collapse: every selection's achievable candidate
 set is {neural-only argmax} union {fused_argmax at each beta in BETA_GRID} -- pure aggregation over
 data that already exists in attribution.parquet, no new fusion computation.
 """

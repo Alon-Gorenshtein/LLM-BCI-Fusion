@@ -1,11 +1,9 @@
-"""Exact fusion decision-boundary math (design spec section 17.2 Step 2). The fused log-score for
+"""Exact fusion decision-boundary math. The fused log-score for
 candidate j is S_j(beta) = beta*log(p_neural[j]) + log(p_lm[j]), linear in beta. For two candidates
 j, k, S_j(beta) = S_k(beta) at beta*_jk = -(log p_lm[j] - log p_lm[k]) / (log p_neural[j] -
 log p_neural[k]). This module deliberately restricts itself to PAIRWISE comparisons against the
 already-known fixed-beta winner, not a full 36-symbol upper-envelope construction: every candidate
-feature this study needs is framed relative to the frozen default action (spec section 17.2 Step 4's
-combining rule compares each alternative candidate to the fixed choice, never candidates to each
-other), so the pairwise formula is both simpler and exactly what is needed -- verified by direct
+feature this study needs is framed relative to the frozen default action, so the pairwise formula is both simpler and exactly what is needed -- verified by direct
 comparison against a brute-force beta scan in this module's own test suite.
 """
 from __future__ import annotations

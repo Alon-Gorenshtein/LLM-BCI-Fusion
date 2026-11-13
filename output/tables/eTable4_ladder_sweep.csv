@@ -1,0 +1,25 @@
+Prior model,Adaptive minus fixed (prior capture),Lower 95% CI,Upper 95% CI
+EleutherAI/pythia-12b,0.0015,-0.0019,0.0051
+Qwen/Qwen2.5-1.5B,0.0033,-0.0012,0.0080
+Qwen/Qwen2.5-14B,0.0033,-0.0013,0.0079
+Qwen/Qwen2.5-32B,0.0024,-0.0021,0.0071
+Qwen/Qwen2.5-3B,-0.0009,-0.0074,0.0052
+Qwen/Qwen3.5-27B,0.0047,0.0003,0.0095
+Qwen/Qwen3.6-35B-A3B,0.0044,-0.0003,0.0095
+allenai/OLMo-2-1124-7B-Instruct,0.0000,-0.0050,0.0056
+deepseek-ai/DeepSeek-V2-Lite,0.0006,-0.0027,0.0043
+google/gemma-2-27b,0.0024,-0.0020,0.0069
+google/gemma-2-2b-it,-0.0050,-0.0101,0.0003
+google/gemma-2-9b,-0.0059,-0.0114,0.0000
+google/gemma-4-12b-it,0.0006,-0.0065,0.0076
+google/recurrentgemma-2b,0.0047,0.0009,0.0090
+gpt2,0.0059,0.0018,0.0108
+gpt2-large,0.0053,0.0010,0.0101
+meta-llama/Llama-3.1-8B-Instruct,0.0009,-0.0043,0.0056
+mistralai/Mistral-7B-v0.3,0.0012,-0.0032,0.0057
+mistralai/Mixtral-8x7B-v0.1,0.0027,-0.0007,0.0061
+ngram5,0.0015,-0.0012,0.0041
+ngram5_kn,0.0006,-0.0015,0.0033
+ngram5_wiki_kn,0.0021,0.0000,0.0045
+openai/gpt-oss-20b,0.0047,0.0011,0.0086
+state-spaces/mamba-2.8b-hf,0.0030,-0.0012,0.0073

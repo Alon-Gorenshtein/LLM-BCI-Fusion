@@ -1,0 +1,7 @@
+Prior,Outcome,Contrast,Raw p,BH-adjusted p
+gpt2,Prior capture,Adaptive vs fixed,0.0013,0.0078
+gpt2,Phantom agreement,Adaptive vs fixed,0.6527,0.6527
+gpt2,Fused selection correctness,Adaptive vs fixed,0.0188,0.0564
+ngram5_kn,Prior capture,Adaptive vs fixed,0.6249,0.6527
+ngram5_kn,Phantom agreement,Adaptive vs fixed,0.3527,0.5290
+ngram5_kn,Fused selection correctness,Adaptive vs fixed,0.1986,0.3973

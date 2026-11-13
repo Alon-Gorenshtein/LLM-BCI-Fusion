@@ -1,5 +1,4 @@
-"""Candidate-ranking model and the conservative, exact-identity-by-default combining rule (design
-spec section 17.2 Steps 3-4). Reimplements the small CV/scaling pattern locally rather than
+"""Candidate-ranking model and the conservative, exact-identity-by-default combining rule. Reimplements the small CV/scaling pattern locally rather than
 importing route_a_stage1/2's underscore-prefixed internals, per this plan's DRY exception.
 """
 from __future__ import annotations

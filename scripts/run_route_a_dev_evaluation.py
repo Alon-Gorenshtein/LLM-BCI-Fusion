@@ -1,6 +1,6 @@
 """Dev-side (out-of-fold) evaluation of the Route A controller, both priors. Run and record this
 BEFORE touching StudyB -- this is the last checkpoint to catch a bug or a design problem while it is
-still cheap to fix, exactly as the Version 2 addendum's dev-side checkpoint was used in section 13.
+still cheap to fix, exactly as the joint gate's dev-side checkpoint was used.
 """
 from __future__ import annotations
 

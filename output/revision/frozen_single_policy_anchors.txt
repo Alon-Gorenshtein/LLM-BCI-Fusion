@@ -1,0 +1,14 @@
+gpt2 anchor pairs chosen (rows):
+chosen_beta_min  chosen_beta_max
+0.9              1.1                2691
+1.0              1.0                 682
+gpt2 participants per pair:
+chosen_beta_min  chosen_beta_max
+0.9              1.1                37
+1.0              1.0                10
+ngram5_kn anchor pairs chosen (rows):
+chosen_beta_min  chosen_beta_max
+0.5              0.5                3373
+ngram5_kn participants per pair:
+chosen_beta_min  chosen_beta_max
+0.5              0.5                47

@@ -1,0 +1,12 @@
+### gpt2
+--- gpt2 (policy frozen on fused_correct) ---
+  prior_capture: fixed=0.0190 adaptive=0.0190 diff=0.0000 (95% CI -0.0009 to 0.0008)
+  phantom_agreement: fixed=0.0382 adaptive=0.0382 diff=0.0000 (95% CI -0.0009 to 0.0009)
+  fused_correct: fixed=0.7373 adaptive=0.7373 diff=0.0000 (95% CI -0.0009 to 0.0008)
+  net_correct_gain: fixed=0.0193 adaptive=0.0193 diff=0.0000 (95% CI -0.0009 to 0.0008)
+--- ngram5_kn (policy frozen on fused_correct) ---
+  prior_capture: fixed=0.0110 adaptive=0.0110 diff=0.0000 (95% CI 0.0000 to 0.0000)
+  phantom_agreement: fixed=0.1005 adaptive=0.1005 diff=0.0000 (95% CI 0.0000 to 0.0000)
+  fused_correct: fixed=0.8076 adaptive=0.8076 diff=0.0000 (95% CI 0.0000 to 0.0000)
+  net_correct_gain: fixed=0.0895 adaptive=0.0895 diff=0.0000 (95% CI 0.0000 to 0.0000)
+### ngram5_kn

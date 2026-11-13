@@ -1,5 +1,5 @@
-"""Net correct gain: the redesigned primary endpoint (design spec 3.1), replacing prior-capture
-rate after the rescue experiment (Task 9) confirmed it is structurally minimized by the no-LM
+"""Net correct gain: the redesigned primary endpoint, replacing prior-capture
+rate after the rescue experiment confirmed it is structurally minimized by the no-LM
 floor arm and so cannot fairly credit any fusion policy.
 
 net_correct_gain = int(fused_correct) - int(neural_correct), per selection. Its mean equals
@@ -24,6 +24,16 @@ def add_net_correct_gain(frame: pd.DataFrame) -> pd.DataFrame:
         result["fused_correct"].astype(int) - result["neural_correct"].astype(int)
     )
     return result
+
+
+def orient_adaptive_minus_fixed(legacy: dict) -> dict:
+    """`net_gain_diff_*` comes from a bootstrap with arm order (best_fixed, tuned_adaptive), so it is
+    fixed minus adaptive. Return the same interval as adaptive minus fixed (positive = adaptive better)."""
+    return {
+        "adaptive_minus_fixed_point": -legacy["net_gain_diff_point"],
+        "adaptive_minus_fixed_lower": -legacy["net_gain_diff_upper"],
+        "adaptive_minus_fixed_upper": -legacy["net_gain_diff_lower"],
+    }
 
 
 def run_net_gain_comparison(prior_model: str, n_folds: int = 5) -> dict:
@@ -59,12 +69,16 @@ def run_net_gain_comparison(prior_model: str, n_folds: int = 5) -> dict:
     point, lower, upper = participant_cluster_bootstrap_rate_diff(
         long_frame, "net_correct_gain", "best_fixed", "tuned_adaptive", n_bootstrap=N_BOOTSTRAP
     )
-    return {
+    result = {
         "prior_model": prior_model,
         "floor_net_gain": 0.0,
         "best_fixed_net_gain": float(best_fixed["net_correct_gain"].mean()),
         "tuned_adaptive_net_gain": float(tuned_adaptive["net_correct_gain"].mean()),
+        # Legacy keys: best-fixed MINUS tuned-adaptive (the bootstrap is called with arm order
+        # best_fixed, tuned_adaptive). Use the adaptive_minus_fixed_* keys below for reporting.
         "net_gain_diff_point": point,
         "net_gain_diff_lower": lower,
         "net_gain_diff_upper": upper,
     }
+    result.update(orient_adaptive_minus_fixed(result))
+    return result

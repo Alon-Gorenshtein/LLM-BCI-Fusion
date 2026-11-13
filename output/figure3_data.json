@@ -1,0 +1,215 @@
+{
+  "candidate_collapse": {
+    "gpt2": {
+      "1": 0.668544322561518,
+      "2": 0.27631188852653427,
+      "3": 0.051586125111176995,
+      "4": 0.003261191817373258,
+      "5": 0.0002964719833975689
+    },
+    "ngram5_kn": {
+      "1": 0.7841683960865699,
+      "2": 0.17521494218796324,
+      "3": 0.037355469908093686,
+      "4": 0.003261191817373258
+    }
+  },
+  "override_outcomes": {
+    "gpt2": {
+      "n_helped": 42.0,
+      "n_hurt": 50.0,
+      "n_no_effect": 74.0
+    },
+    "ngram5_kn": {
+      "n_helped": 15.0,
+      "n_hurt": 47.0,
+      "n_no_effect": 22.0
+    }
+  },
+  "abstention_enrichment": {
+    "gpt2": {
+      "candidate_ranker_p_hat": {
+        "coverage_0.95": {
+          "error_fraction_captured": 0.132054,
+          "enrichment": 2.635614
+        },
+        "coverage_0.90": {
+          "error_fraction_captured": 0.261851,
+          "enrichment": 2.613087
+        }
+      },
+      "fixed_fused_top1_prob": {
+        "coverage_0.95": {
+          "error_fraction_captured": 0.153499,
+          "enrichment": 3.063619
+        },
+        "coverage_0.90": {
+          "error_fraction_captured": 0.278781,
+          "enrichment": 2.782037
+        }
+      },
+      "fixed_fused_margin": {
+        "coverage_0.95": {
+          "error_fraction_captured": 0.146727,
+          "enrichment": 2.92846
+        },
+        "coverage_0.90": {
+          "error_fraction_captured": 0.278781,
+          "enrichment": 2.782037
+        }
+      },
+      "fixed_fused_entropy_bits": {
+        "coverage_0.95": {
+          "error_fraction_captured": 0.150113,
+          "enrichment": 2.99604
+        },
+        "coverage_0.90": {
+          "error_fraction_captured": 0.28781,
+          "enrichment": 2.872143
+        }
+      },
+      "neural_top1_prob": {
+        "coverage_0.95": {
+          "error_fraction_captured": 0.125282,
+          "enrichment": 2.500454
+        },
+        "coverage_0.90": {
+          "error_fraction_captured": 0.249436,
+          "enrichment": 2.489191
+        }
+      },
+      "neural_margin": {
+        "coverage_0.95": {
+          "error_fraction_captured": 0.126411,
+          "enrichment": 2.522981
+        },
+        "coverage_0.90": {
+          "error_fraction_captured": 0.239278,
+          "enrichment": 2.387821
+        }
+      },
+      "reliability_g_hat": {
+        "coverage_0.95": {
+          "error_fraction_captured": 0.136569,
+          "enrichment": 2.72572
+        },
+        "coverage_0.90": {
+          "error_fraction_captured": 0.261851,
+          "enrichment": 2.613087
+        }
+      },
+      "neural_lm_js_divergence": {
+        "coverage_0.95": {
+          "error_fraction_captured": 0.019187,
+          "enrichment": 0.382952
+        },
+        "coverage_0.90": {
+          "error_fraction_captured": 0.068849,
+          "enrichment": 0.687062
+        }
+      }
+    },
+    "ngram5_kn": {
+      "candidate_ranker_p_hat": {
+        "coverage_0.95": {
+          "error_fraction_captured": 0.146667,
+          "enrichment": 2.927258
+        },
+        "coverage_0.90": {
+          "error_fraction_captured": 0.300741,
+          "enrichment": 3.001179
+        }
+      },
+      "fixed_fused_top1_prob": {
+        "coverage_0.95": {
+          "error_fraction_captured": 0.191111,
+          "enrichment": 3.814306
+        },
+        "coverage_0.90": {
+          "error_fraction_captured": 0.339259,
+          "enrichment": 3.385567
+        }
+      },
+      "fixed_fused_margin": {
+        "coverage_0.95": {
+          "error_fraction_captured": 0.180741,
+          "enrichment": 3.607329
+        },
+        "coverage_0.90": {
+          "error_fraction_captured": 0.334815,
+          "enrichment": 3.341214
+        }
+      },
+      "fixed_fused_entropy_bits": {
+        "coverage_0.95": {
+          "error_fraction_captured": 0.174815,
+          "enrichment": 3.489055
+        },
+        "coverage_0.90": {
+          "error_fraction_captured": 0.336296,
+          "enrichment": 3.355998
+        }
+      },
+      "neural_top1_prob": {
+        "coverage_0.95": {
+          "error_fraction_captured": 0.145185,
+          "enrichment": 2.89769
+        },
+        "coverage_0.90": {
+          "error_fraction_captured": 0.263704,
+          "enrichment": 2.631576
+        }
+      },
+      "neural_margin": {
+        "coverage_0.95": {
+          "error_fraction_captured": 0.143704,
+          "enrichment": 2.868122
+        },
+        "coverage_0.90": {
+          "error_fraction_captured": 0.257778,
+          "enrichment": 2.572439
+        }
+      },
+      "reliability_g_hat": {
+        "coverage_0.95": {
+          "error_fraction_captured": 0.148148,
+          "enrichment": 2.956827
+        },
+        "coverage_0.90": {
+          "error_fraction_captured": 0.275556,
+          "enrichment": 2.749849
+        }
+      },
+      "neural_lm_js_divergence": {
+        "coverage_0.95": {
+          "error_fraction_captured": 0.108148,
+          "enrichment": 2.158483
+        },
+        "coverage_0.90": {
+          "error_fraction_captured": 0.214815,
+          "enrichment": 2.143699
+        }
+      }
+    }
+  },
+  "decoded_history": {
+    "gpt2": {
+      "decoded_history_net_correct_gain": 0.006522383634746516,
+      "ground_truth_prefix_net_correct_gain": 0.019270678920841982,
+      "decoded_minus_ground_truth": {
+        "point": -0.012748295286095467,
+        "lower": -0.020075024840833556,
+        "upper": -0.006801274762104263
+      }
+    },
+    "ngram5_kn": {
+      "decoded_history_net_correct_gain": 0.009190631485324638,
+      "ground_truth_prefix_net_correct_gain": 0.08953453898606582,
+      "decoded_minus_ground_truth": {
+        "point": -0.08034390750074119,
+        "lower": -0.10481695079805539,
+        "upper": -0.056647597297245396
+      }
+    }
+  }
+}

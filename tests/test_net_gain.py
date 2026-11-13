@@ -27,7 +27,7 @@ def test_run_net_gain_comparison_on_real_data_has_a_bounded_ci():
 
 
 def test_add_net_correct_gain_on_the_canonical_four_arm_frame_is_zero_for_every_floor_row():
-    """The redesigned primary endpoint's core anchor claim (design spec 3.1): the no-LM floor
+    """The redesigned primary endpoint's core anchor claim: the no-LM floor
     arm's net_correct_gain is exactly 0.0 by construction (fused_correct == neural_correct when
     no LM is used), on the pipeline's own canonical four-arm assembly function
     (fusion.arms.assemble_all_arms), not just on the separate rescue-arm path already covered by

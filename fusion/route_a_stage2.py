@@ -1,4 +1,4 @@
-"""Route A Stage 2 (design spec section 15.2): out-of-fold P-hat(fused_correct=1 | x, beta) for
+"""Route A Stage 2: out-of-fold P-hat(fused_correct=1 | x, beta) for
 each beta in BETA_GRID, fit on ALL dev rows regardless of actionability -- actionability (Stage 1)
 gates whether this output is CONSULTED, not whether the model is trained. Same CV/scaling pattern as
 Stage 1 (`fusion.route_a_stage1`), reimplemented locally per this plan's DRY exception rather than

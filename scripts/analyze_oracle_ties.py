@@ -1,4 +1,4 @@
-"""Round 3 addendum, design spec S14.2 item 1: how often is the grid oracle's chosen beta unique,
+"""How often is the grid oracle's chosen beta unique,
 versus tied among several equally-correct beta values? fusion.arms.select_oracle_arm breaks ties by
 highest p_fused_target, then row order -- a real rule, but previously undisclosed and unquantified.
 Dev-only (Studies B, F, L): Study N is split out and discarded, never read.

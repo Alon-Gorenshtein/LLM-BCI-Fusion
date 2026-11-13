@@ -47,6 +47,23 @@ def fit_reliability_cv(frame: pd.DataFrame, n_folds: int = 5) -> pd.DataFrame:
     return result
 
 
+def fit_reliability_frozen(train_frame: pd.DataFrame, test_frame: pd.DataFrame) -> pd.Series:
+    """Single fit on train_frame, applied once to test_frame -- the same generalization level as
+    fusion.candidate_arbitration.fit_candidate_ranker_frozen, so g_hat is a fair baseline against
+    the candidate ranker's own frozen per-outer-fold fit in a nested leave-one-study-out
+    comparison. Unlike fit_reliability_cv, there is no internal cross-validation here: the model
+    is fit once on all of train_frame and predicts once on all of test_frame.
+    """
+    train_features = reliability_features_frame(train_frame["p_neural"])
+    train_labels = train_frame["neural_correct"].astype(int).to_numpy()
+    test_features = reliability_features_frame(test_frame["p_neural"])
+
+    model = LogisticRegression(random_state=RANDOM_STATE, max_iter=1000)
+    model.fit(train_features, train_labels)
+    g_hat = model.predict_proba(test_features)[:, 1]
+    return pd.Series(g_hat, index=test_frame.index, name="g_hat")
+
+
 def reliability_auroc(frame_with_g_hat: pd.DataFrame) -> float:
     return float(
         roc_auc_score(frame_with_g_hat["neural_correct"].astype(int), frame_with_g_hat["g_hat"])

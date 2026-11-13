@@ -1,5 +1,5 @@
-"""Route A Stage 1 (design spec section 15.2): out-of-fold P-hat(actionable | x) from the same
-joint neural+LM feature set the Version 2 gate already validated. This module deliberately
+"""Route A Stage 1: out-of-fold P-hat(actionable | x) from the same
+joint neural+LM feature set the joint gate already validated. This module deliberately
 reimplements the small CV/scaling pattern from `fusion.arbitration` rather than importing its
 underscore-prefixed internals, matching the DRY exception already used by
 `fusion/arbitration_diagnostics.py`.

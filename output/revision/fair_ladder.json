@@ -1,0 +1,3417 @@
+{
+  "n_selections": 3373,
+  "n_priors": 24,
+  "n_boot": 2000,
+  "seed": 20260820,
+  "orientation": "adaptive minus fixed; positive favours adaptive",
+  "priors": {
+    "EleutherAI/pythia-12b": {
+      "parameters": 12000000000.0,
+      "mean_fixed": 0.023717758671805516,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.02520011858879336,
+        "diff": 0.0014823599169878447,
+        "ci_participant": [
+          -0.00031458168299452544,
+          0.0033336374695863732
+        ],
+        "ci_context": [
+          0.0,
+          0.0033609592246098656
+        ],
+        "ci_crossed": [
+          -0.0009866451650282927,
+          0.0050894596886963284
+        ],
+        "n_adaptive_better": 7,
+        "n_fixed_better": 2,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.0
+      },
+      "nested": {
+        "mean_adaptive": 0.02549659057219093,
+        "diff": 0.0017788319003854136,
+        "ci_participant": [
+          0.0,
+          0.003605138976023567
+        ],
+        "ci_context": [
+          0.0,
+          0.004077403926464507
+        ],
+        "ci_crossed": [
+          -0.0013362342675852358,
+          0.005583842097666952
+        ],
+        "n_adaptive_better": 9,
+        "n_fixed_better": 3,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.0
+      },
+      "share_folds_same_anchor_insample_vs_nested": 0.8
+    },
+    "Qwen/Qwen2.5-1.5B": {
+      "parameters": 1540000000.0,
+      "mean_fixed": 0.02520011858879336,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.02520011858879336,
+        "diff": 0.0,
+        "ci_participant": [
+          0.0,
+          0.0
+        ],
+        "ci_context": [
+          0.0,
+          0.0
+        ],
+        "ci_crossed": [
+          0.0,
+          0.0
+        ],
+        "n_adaptive_better": 0,
+        "n_fixed_better": 0,
+        "identical_on_every_selection": true,
+        "share_folds_constant_weight": 1.0
+      },
+      "nested": {
+        "mean_adaptive": 0.024607174621998223,
+        "diff": -0.0005929439667951378,
+        "ci_participant": [
+          -0.0015470656358373526,
+          0.0
+        ],
+        "ci_context": [
+          -0.0017445196259362986,
+          0.0
+        ],
+        "ci_crossed": [
+          -0.002695463228358049,
+          0.0
+        ],
+        "n_adaptive_better": 0,
+        "n_fixed_better": 2,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.8
+      },
+      "share_folds_same_anchor_insample_vs_nested": 0.8
+    },
+    "Qwen/Qwen2.5-14B": {
+      "parameters": 14700000000.0,
+      "mean_fixed": 0.019863622887637118,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.01897420693744441,
+        "diff": -0.0008894159501927068,
+        "ci_participant": [
+          -0.00237741456166419,
+          0.0006150678595393546
+        ],
+        "ci_context": [
+          -0.0025992961265999394,
+          0.00033980668451341574
+        ],
+        "ci_crossed": [
+          -0.003855252229206132,
+          0.0014659266769838266
+        ],
+        "n_adaptive_better": 2,
+        "n_fixed_better": 5,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.4
+      },
+      "nested": {
+        "mean_adaptive": 0.01897420693744441,
+        "diff": -0.0008894159501927068,
+        "ci_participant": [
+          -0.00237741456166419,
+          0.0006150678595393546
+        ],
+        "ci_context": [
+          -0.0025992961265999394,
+          0.00033980668451341574
+        ],
+        "ci_crossed": [
+          -0.003855252229206132,
+          0.0014659266769838266
+        ],
+        "n_adaptive_better": 2,
+        "n_fixed_better": 5,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.4
+      },
+      "share_folds_same_anchor_insample_vs_nested": 1.0
+    },
+    "Qwen/Qwen2.5-32B": {
+      "parameters": 32500000000.0,
+      "mean_fixed": 0.021049510821227396,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.022531870738215238,
+        "diff": 0.0014823599169878447,
+        "ci_participant": [
+          -0.00032089138485785735,
+          0.0034447890418039646
+        ],
+        "ci_context": [
+          -0.00022732788805685132,
+          0.003751582702924217
+        ],
+        "ci_crossed": [
+          -0.0015504176664802353,
+          0.005274310158589869
+        ],
+        "n_adaptive_better": 7,
+        "n_fixed_better": 2,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.0
+      },
+      "nested": {
+        "mean_adaptive": 0.022531870738215238,
+        "diff": 0.0014823599169878447,
+        "ci_participant": [
+          -0.00032089138485785735,
+          0.0034447890418039646
+        ],
+        "ci_context": [
+          -0.00022732788805685132,
+          0.003751582702924217
+        ],
+        "ci_crossed": [
+          -0.0015504176664802353,
+          0.005274310158589869
+        ],
+        "n_adaptive_better": 7,
+        "n_fixed_better": 2,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.0
+      },
+      "share_folds_same_anchor_insample_vs_nested": 1.0
+    },
+    "Qwen/Qwen2.5-3B": {
+      "parameters": 3090000000.0,
+      "mean_fixed": 0.007708271568336793,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 4.0,
+          "anchor": [
+            4.0,
+            4.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 4.0,
+          "anchor": [
+            4.0,
+            4.0
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 4.0,
+          "anchor": [
+            4.0,
+            4.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 4.0,
+          "anchor": [
+            4.0,
+            4.0
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.007708271568336793,
+        "diff": 0.0,
+        "ci_participant": [
+          0.0,
+          0.0
+        ],
+        "ci_context": [
+          0.0,
+          0.0
+        ],
+        "ci_crossed": [
+          0.0,
+          0.0
+        ],
+        "n_adaptive_better": 0,
+        "n_fixed_better": 0,
+        "identical_on_every_selection": true,
+        "share_folds_constant_weight": 1.0
+      },
+      "nested": {
+        "mean_adaptive": 0.007708271568336793,
+        "diff": 0.0,
+        "ci_participant": [
+          0.0,
+          0.0
+        ],
+        "ci_context": [
+          0.0,
+          0.0
+        ],
+        "ci_crossed": [
+          0.0,
+          0.0
+        ],
+        "n_adaptive_better": 0,
+        "n_fixed_better": 0,
+        "identical_on_every_selection": true,
+        "share_folds_constant_weight": 1.0
+      },
+      "share_folds_same_anchor_insample_vs_nested": 1.0
+    },
+    "Qwen/Qwen3.5-27B": {
+      "parameters": 27000000000.0,
+      "mean_fixed": 0.019863622887637118,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.019270678920841982,
+        "diff": -0.0005929439667951378,
+        "ci_participant": [
+          -0.0017516742618765126,
+          0.0005761203015950142
+        ],
+        "ci_context": [
+          -0.0016875105447050518,
+          0.0006706649757945397
+        ],
+        "ci_crossed": [
+          -0.0027472527472527475,
+          0.0013412106974413514
+        ],
+        "n_adaptive_better": 1,
+        "n_fixed_better": 3,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.6
+      },
+      "nested": {
+        "mean_adaptive": 0.019270678920841982,
+        "diff": -0.0005929439667951378,
+        "ci_participant": [
+          -0.0017516742618765126,
+          0.0005761203015950142
+        ],
+        "ci_context": [
+          -0.0016875105447050518,
+          0.0006706649757945397
+        ],
+        "ci_crossed": [
+          -0.0027472527472527475,
+          0.0013412106974413514
+        ],
+        "n_adaptive_better": 1,
+        "n_fixed_better": 3,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.6
+      },
+      "share_folds_same_anchor_insample_vs_nested": 1.0
+    },
+    "Qwen/Qwen3.6-35B-A3B": {
+      "parameters": 35000000000.0,
+      "mean_fixed": 0.02490364660539579,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.024607174621998223,
+        "diff": -0.0002964719833975689,
+        "ci_participant": [
+          -0.001346311864666712,
+          0.0006392279420802909
+        ],
+        "ci_context": [
+          -0.0012361705288858457,
+          0.0007569257303943567
+        ],
+        "ci_crossed": [
+          -0.0019642928296774447,
+          0.0015233012034063123
+        ],
+        "n_adaptive_better": 1,
+        "n_fixed_better": 2,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.4
+      },
+      "nested": {
+        "mean_adaptive": 0.024014230655203084,
+        "diff": -0.0008894159501927068,
+        "ci_participant": [
+          -0.0021529603380874107,
+          0.00030685910188343977
+        ],
+        "ci_context": [
+          -0.0029221253892306523,
+          0.0006556200379891979
+        ],
+        "ci_crossed": [
+          -0.004274731727388452,
+          0.0014021082816778445
+        ],
+        "n_adaptive_better": 3,
+        "n_fixed_better": 6,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.2
+      },
+      "share_folds_same_anchor_insample_vs_nested": 0.6
+    },
+    "allenai/OLMo-2-1124-7B-Instruct": {
+      "parameters": 7000000000.0,
+      "mean_fixed": 0.011858879335902758,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.01956715090423955,
+        "diff": 0.007708271568336793,
+        "ci_participant": [
+          0.004220169075353811,
+          0.011824525678501436
+        ],
+        "ci_context": [
+          0.004051209879228165,
+          0.011722263625885656
+        ],
+        "ci_crossed": [
+          0.0019804447501985184,
+          0.015078834709574943
+        ],
+        "n_adaptive_better": 37,
+        "n_fixed_better": 11,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.0
+      },
+      "nested": {
+        "mean_adaptive": 0.01956715090423955,
+        "diff": 0.007708271568336793,
+        "ci_participant": [
+          0.004220169075353811,
+          0.011824525678501436
+        ],
+        "ci_context": [
+          0.004051209879228165,
+          0.011722263625885656
+        ],
+        "ci_crossed": [
+          0.0019804447501985184,
+          0.015078834709574943
+        ],
+        "n_adaptive_better": 37,
+        "n_fixed_better": 11,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.0
+      },
+      "share_folds_same_anchor_insample_vs_nested": 1.0
+    },
+    "deepseek-ai/DeepSeek-V2-Lite": {
+      "parameters": 15700000000.0,
+      "mean_fixed": 0.02431070263860065,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.02431070263860065,
+        "diff": 0.0,
+        "ci_participant": [
+          0.0,
+          0.0
+        ],
+        "ci_context": [
+          0.0,
+          0.0
+        ],
+        "ci_crossed": [
+          0.0,
+          0.0
+        ],
+        "n_adaptive_better": 0,
+        "n_fixed_better": 0,
+        "identical_on_every_selection": true,
+        "share_folds_constant_weight": 1.0
+      },
+      "nested": {
+        "mean_adaptive": 0.02431070263860065,
+        "diff": 0.0,
+        "ci_participant": [
+          0.0,
+          0.0
+        ],
+        "ci_context": [
+          0.0,
+          0.0
+        ],
+        "ci_crossed": [
+          0.0,
+          0.0
+        ],
+        "n_adaptive_better": 0,
+        "n_fixed_better": 0,
+        "identical_on_every_selection": true,
+        "share_folds_constant_weight": 1.0
+      },
+      "share_folds_same_anchor_insample_vs_nested": 1.0
+    },
+    "google/gemma-2-27b": {
+      "parameters": 27000000000.0,
+      "mean_fixed": 0.017788319003854136,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.5,
+            2.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.5,
+            2.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.5,
+            2.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.01689890305366143,
+        "diff": -0.0008894159501927068,
+        "ci_participant": [
+          -0.002477797602264305,
+          0.0
+        ],
+        "ci_context": [
+          -0.0024476475387544194,
+          0.0007059881204001051
+        ],
+        "ci_crossed": [
+          -0.0038582149750799447,
+          0.0011744499326448133
+        ],
+        "n_adaptive_better": 2,
+        "n_fixed_better": 5,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.8
+      },
+      "nested": {
+        "mean_adaptive": 0.015713015120071155,
+        "diff": -0.0020753038837829827,
+        "ci_participant": [
+          -0.004375569150050046,
+          -0.0002876478974566661
+        ],
+        "ci_context": [
+          -0.004547176960970065,
+          0.0004894695655539769
+        ],
+        "ci_crossed": [
+          -0.00650418530812527,
+          0.001602741448692152
+        ],
+        "n_adaptive_better": 5,
+        "n_fixed_better": 12,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.4
+      },
+      "share_folds_same_anchor_insample_vs_nested": 0.6
+    },
+    "google/gemma-2-2b-it": {
+      "parameters": 2000000000.0,
+      "mean_fixed": 0.008597687518529499,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 4.0,
+          "anchor": [
+            4.0,
+            4.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 4.0,
+          "anchor": [
+            4.0,
+            4.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 4.0,
+          "anchor": [
+            4.0,
+            4.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 4.0,
+          "anchor": [
+            4.0,
+            4.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 4.0,
+          "anchor": [
+            4.0,
+            4.0
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 4.0,
+          "anchor": [
+            4.0,
+            4.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 4.0,
+          "anchor": [
+            4.0,
+            4.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 4.0,
+          "anchor": [
+            4.0,
+            4.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 4.0,
+          "anchor": [
+            4.0,
+            4.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 4.0,
+          "anchor": [
+            4.0,
+            4.0
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.008597687518529499,
+        "diff": 0.0,
+        "ci_participant": [
+          0.0,
+          0.0
+        ],
+        "ci_context": [
+          0.0,
+          0.0
+        ],
+        "ci_crossed": [
+          0.0,
+          0.0
+        ],
+        "n_adaptive_better": 0,
+        "n_fixed_better": 0,
+        "identical_on_every_selection": true,
+        "share_folds_constant_weight": 1.0
+      },
+      "nested": {
+        "mean_adaptive": 0.008597687518529499,
+        "diff": 0.0,
+        "ci_participant": [
+          0.0,
+          0.0
+        ],
+        "ci_context": [
+          0.0,
+          0.0
+        ],
+        "ci_crossed": [
+          0.0,
+          0.0
+        ],
+        "n_adaptive_better": 0,
+        "n_fixed_better": 0,
+        "identical_on_every_selection": true,
+        "share_folds_constant_weight": 1.0
+      },
+      "share_folds_same_anchor_insample_vs_nested": 1.0
+    },
+    "google/gemma-2-9b": {
+      "parameters": 9000000000.0,
+      "mean_fixed": 0.013341239252890602,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            0.5,
+            8.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            0.5,
+            8.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            0.5,
+            8.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.5,
+            2.0
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            0.5,
+            8.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            0.5,
+            8.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            0.5,
+            8.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.5,
+            2.0
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.013637711236288172,
+        "diff": 0.0002964719833975689,
+        "ci_participant": [
+          -0.004074980360056951,
+          0.004628609740912782
+        ],
+        "ci_context": [
+          -0.0031598875118659634,
+          0.004915775756053713
+        ],
+        "ci_crossed": [
+          -0.00647742042023021,
+          0.009063971912401483
+        ],
+        "n_adaptive_better": 27,
+        "n_fixed_better": 26,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.0
+      },
+      "nested": {
+        "mean_adaptive": 0.013637711236288172,
+        "diff": 0.0002964719833975689,
+        "ci_participant": [
+          -0.004074980360056951,
+          0.004628609740912782
+        ],
+        "ci_context": [
+          -0.0031598875118659634,
+          0.004915775756053713
+        ],
+        "ci_crossed": [
+          -0.00647742042023021,
+          0.009063971912401483
+        ],
+        "n_adaptive_better": 27,
+        "n_fixed_better": 26,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.0
+      },
+      "share_folds_same_anchor_insample_vs_nested": 1.0
+    },
+    "google/gemma-4-12b-it": {
+      "parameters": 12000000000.0,
+      "mean_fixed": 0.005040023717758672,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 4.0,
+          "anchor": [
+            4.0,
+            4.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 4.0,
+          "anchor": [
+            4.0,
+            4.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 4.0,
+          "anchor": [
+            4.0,
+            4.0
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 4.0,
+          "anchor": [
+            4.0,
+            4.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 4.0,
+          "anchor": [
+            4.0,
+            4.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 4.0,
+          "anchor": [
+            4.0,
+            4.0
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.005040023717758672,
+        "diff": 0.0,
+        "ci_participant": [
+          0.0,
+          0.0
+        ],
+        "ci_context": [
+          0.0,
+          0.0
+        ],
+        "ci_crossed": [
+          0.0,
+          0.0
+        ],
+        "n_adaptive_better": 0,
+        "n_fixed_better": 0,
+        "identical_on_every_selection": true,
+        "share_folds_constant_weight": 1.0
+      },
+      "nested": {
+        "mean_adaptive": 0.005040023717758672,
+        "diff": 0.0,
+        "ci_participant": [
+          0.0,
+          0.0
+        ],
+        "ci_context": [
+          0.0,
+          0.0
+        ],
+        "ci_crossed": [
+          0.0,
+          0.0
+        ],
+        "n_adaptive_better": 0,
+        "n_fixed_better": 0,
+        "identical_on_every_selection": true,
+        "share_folds_constant_weight": 1.0
+      },
+      "share_folds_same_anchor_insample_vs_nested": 1.0
+    },
+    "google/recurrentgemma-2b": {
+      "parameters": 2700000000.0,
+      "mean_fixed": 0.024014230655203084,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.026386006522383636,
+        "diff": 0.0023717758671805513,
+        "ci_participant": [
+          0.000874222519754526,
+          0.004073379697192677
+        ],
+        "ci_context": [
+          0.0006546413022815893,
+          0.004876070449957064
+        ],
+        "ci_crossed": [
+          0.0,
+          0.007024031065753876
+        ],
+        "n_adaptive_better": 9,
+        "n_fixed_better": 1,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.0
+      },
+      "nested": {
+        "mean_adaptive": 0.026386006522383636,
+        "diff": 0.0023717758671805513,
+        "ci_participant": [
+          0.000874222519754526,
+          0.004073379697192677
+        ],
+        "ci_context": [
+          0.0006546413022815893,
+          0.004876070449957064
+        ],
+        "ci_crossed": [
+          0.0,
+          0.007024031065753876
+        ],
+        "n_adaptive_better": 9,
+        "n_fixed_better": 1,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.0
+      },
+      "share_folds_same_anchor_insample_vs_nested": 1.0
+    },
+    "gpt2": {
+      "parameters": 124000000.0,
+      "mean_fixed": 0.019270678920841982,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.9,
+            1.1
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.019270678920841982,
+        "diff": 0.0,
+        "ci_participant": [
+          -0.0008760087334375065,
+          0.0008988703853171386
+        ],
+        "ci_context": [
+          -0.0010135709332818922,
+          0.0006179355962075444
+        ],
+        "ci_crossed": [
+          -0.0019174334967748542,
+          0.0015792122924761553
+        ],
+        "n_adaptive_better": 2,
+        "n_fixed_better": 2,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.2
+      },
+      "nested": {
+        "mean_adaptive": 0.019270678920841982,
+        "diff": 0.0,
+        "ci_participant": [
+          -0.0008760087334375065,
+          0.0008988703853171386
+        ],
+        "ci_context": [
+          -0.0010135709332818922,
+          0.0006179355962075444
+        ],
+        "ci_crossed": [
+          -0.0019174334967748542,
+          0.0015792122924761553
+        ],
+        "n_adaptive_better": 2,
+        "n_fixed_better": 2,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.2
+      },
+      "share_folds_same_anchor_insample_vs_nested": 1.0
+    },
+    "gpt2-large": {
+      "parameters": 774000000.0,
+      "mean_fixed": 0.021049510821227396,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.021049510821227396,
+        "diff": 0.0,
+        "ci_participant": [
+          0.0,
+          0.0
+        ],
+        "ci_context": [
+          0.0,
+          0.0
+        ],
+        "ci_crossed": [
+          0.0,
+          0.0
+        ],
+        "n_adaptive_better": 0,
+        "n_fixed_better": 0,
+        "identical_on_every_selection": true,
+        "share_folds_constant_weight": 1.0
+      },
+      "nested": {
+        "mean_adaptive": 0.021049510821227396,
+        "diff": 0.0,
+        "ci_participant": [
+          0.0,
+          0.0
+        ],
+        "ci_context": [
+          0.0,
+          0.0
+        ],
+        "ci_crossed": [
+          0.0,
+          0.0
+        ],
+        "n_adaptive_better": 0,
+        "n_fixed_better": 0,
+        "identical_on_every_selection": true,
+        "share_folds_constant_weight": 1.0
+      },
+      "share_folds_same_anchor_insample_vs_nested": 1.0
+    },
+    "meta-llama/Llama-3.1-8B-Instruct": {
+      "parameters": 8000000000.0,
+      "mean_fixed": 0.019270678920841982,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.018084790987251704,
+        "diff": -0.0011858879335902757,
+        "ci_participant": [
+          -0.0035782732018035967,
+          0.0011204195988667141
+        ],
+        "ci_context": [
+          -0.003706592103040558,
+          0.0007784373191238586
+        ],
+        "ci_crossed": [
+          -0.005895936778660575,
+          0.0018625342051530756
+        ],
+        "n_adaptive_better": 4,
+        "n_fixed_better": 8,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.4
+      },
+      "nested": {
+        "mean_adaptive": 0.018381262970649275,
+        "diff": -0.0008894159501927068,
+        "ci_participant": [
+          -0.0040584690174507495,
+          0.002882758316600922
+        ],
+        "ci_context": [
+          -0.0035972400861236354,
+          0.0016646032592481713
+        ],
+        "ci_crossed": [
+          -0.00633210370597257,
+          0.0042912438947311955
+        ],
+        "n_adaptive_better": 9,
+        "n_fixed_better": 12,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.2
+      },
+      "share_folds_same_anchor_insample_vs_nested": 0.8
+    },
+    "mistralai/Mistral-7B-v0.3": {
+      "parameters": 7000000000.0,
+      "mean_fixed": 0.019863622887637118,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.019270678920841982,
+        "diff": -0.0005929439667951378,
+        "ci_participant": [
+          -0.0021470623229526255,
+          0.0006271607663262162
+        ],
+        "ci_context": [
+          -0.0021075689475684514,
+          0.0003868897258484808
+        ],
+        "ci_crossed": [
+          -0.003127526387216253,
+          0.0009400875606738351
+        ],
+        "n_adaptive_better": 1,
+        "n_fixed_better": 3,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.8
+      },
+      "nested": {
+        "mean_adaptive": 0.019270678920841982,
+        "diff": -0.0005929439667951378,
+        "ci_participant": [
+          -0.0021470623229526255,
+          0.0006271607663262162
+        ],
+        "ci_context": [
+          -0.0021075689475684514,
+          0.0003868897258484808
+        ],
+        "ci_crossed": [
+          -0.003127526387216253,
+          0.0009400875606738351
+        ],
+        "n_adaptive_better": 1,
+        "n_fixed_better": 3,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.8
+      },
+      "share_folds_same_anchor_insample_vs_nested": 1.0
+    },
+    "mistralai/Mixtral-8x7B-v0.1": {
+      "parameters": 46700000000.0,
+      "mean_fixed": 0.021049510821227396,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.8,
+            1.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 2.0,
+          "anchor": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.02016009487103469,
+        "diff": -0.0008894159501927068,
+        "ci_participant": [
+          -0.0020314144766525274,
+          0.0
+        ],
+        "ci_context": [
+          -0.002035299738609988,
+          0.000392495580909529
+        ],
+        "ci_crossed": [
+          -0.0032767966385298833,
+          0.0011505360768365163
+        ],
+        "n_adaptive_better": 2,
+        "n_fixed_better": 5,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.8
+      },
+      "nested": {
+        "mean_adaptive": 0.02016009487103469,
+        "diff": -0.0008894159501927068,
+        "ci_participant": [
+          -0.0020314144766525274,
+          0.0
+        ],
+        "ci_context": [
+          -0.002035299738609988,
+          0.000392495580909529
+        ],
+        "ci_crossed": [
+          -0.0032767966385298833,
+          0.0011505360768365163
+        ],
+        "n_adaptive_better": 2,
+        "n_fixed_better": 5,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.8
+      },
+      "share_folds_same_anchor_insample_vs_nested": 1.0
+    },
+    "ngram5": {
+      "parameters": 0.0,
+      "mean_fixed": 0.09902164245478802,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 0.5,
+          "anchor": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 0.5,
+          "anchor": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 0.5,
+          "anchor": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 0.5,
+          "anchor": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 0.5,
+          "anchor": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 0.5,
+          "anchor": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 0.5,
+          "anchor": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 0.5,
+          "anchor": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 0.5,
+          "anchor": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 0.5,
+          "anchor": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.09902164245478802,
+        "diff": 0.0,
+        "ci_participant": [
+          0.0,
+          0.0
+        ],
+        "ci_context": [
+          0.0,
+          0.0
+        ],
+        "ci_crossed": [
+          0.0,
+          0.0
+        ],
+        "n_adaptive_better": 0,
+        "n_fixed_better": 0,
+        "identical_on_every_selection": true,
+        "share_folds_constant_weight": 1.0
+      },
+      "nested": {
+        "mean_adaptive": 0.09902164245478802,
+        "diff": 0.0,
+        "ci_participant": [
+          0.0,
+          0.0
+        ],
+        "ci_context": [
+          0.0,
+          0.0
+        ],
+        "ci_crossed": [
+          0.0,
+          0.0
+        ],
+        "n_adaptive_better": 0,
+        "n_fixed_better": 0,
+        "identical_on_every_selection": true,
+        "share_folds_constant_weight": 1.0
+      },
+      "share_folds_same_anchor_insample_vs_nested": 1.0
+    },
+    "ngram5_kn": {
+      "parameters": 0.0,
+      "mean_fixed": 0.08953453898606582,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 0.5,
+          "anchor": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 0.5,
+          "anchor": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 0.5,
+          "anchor": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 0.5,
+          "anchor": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 0.5,
+          "anchor": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 0.5,
+          "anchor": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 0.5,
+          "anchor": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 0.5,
+          "anchor": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 0.5,
+          "anchor": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 0.5,
+          "anchor": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.08953453898606582,
+        "diff": 0.0,
+        "ci_participant": [
+          0.0,
+          0.0
+        ],
+        "ci_context": [
+          0.0,
+          0.0
+        ],
+        "ci_crossed": [
+          0.0,
+          0.0
+        ],
+        "n_adaptive_better": 0,
+        "n_fixed_better": 0,
+        "identical_on_every_selection": true,
+        "share_folds_constant_weight": 1.0
+      },
+      "nested": {
+        "mean_adaptive": 0.08953453898606582,
+        "diff": 0.0,
+        "ci_participant": [
+          0.0,
+          0.0
+        ],
+        "ci_context": [
+          0.0,
+          0.0
+        ],
+        "ci_crossed": [
+          0.0,
+          0.0
+        ],
+        "n_adaptive_better": 0,
+        "n_fixed_better": 0,
+        "identical_on_every_selection": true,
+        "share_folds_constant_weight": 1.0
+      },
+      "share_folds_same_anchor_insample_vs_nested": 1.0
+    },
+    "ngram5_wiki_kn": {
+      "parameters": 0.0,
+      "mean_fixed": 0.08805217906907797,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 0.25,
+          "anchor": [
+            0.25,
+            0.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 0.25,
+          "anchor": [
+            0.25,
+            0.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 0.25,
+          "anchor": [
+            0.25,
+            0.25
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 0.25,
+          "anchor": [
+            0.25,
+            0.25
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 0.25,
+          "anchor": [
+            0.25,
+            0.25
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 0.25,
+          "anchor": [
+            0.25,
+            0.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 0.25,
+          "anchor": [
+            0.25,
+            0.25
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 0.25,
+          "anchor": [
+            0.25,
+            0.25
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 0.25,
+          "anchor": [
+            0.25,
+            0.25
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 0.25,
+          "anchor": [
+            0.25,
+            0.25
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.08805217906907797,
+        "diff": 0.0,
+        "ci_participant": [
+          0.0,
+          0.0
+        ],
+        "ci_context": [
+          0.0,
+          0.0
+        ],
+        "ci_crossed": [
+          0.0,
+          0.0
+        ],
+        "n_adaptive_better": 0,
+        "n_fixed_better": 0,
+        "identical_on_every_selection": true,
+        "share_folds_constant_weight": 1.0
+      },
+      "nested": {
+        "mean_adaptive": 0.08805217906907797,
+        "diff": 0.0,
+        "ci_participant": [
+          0.0,
+          0.0
+        ],
+        "ci_context": [
+          0.0,
+          0.0
+        ],
+        "ci_crossed": [
+          0.0,
+          0.0
+        ],
+        "n_adaptive_better": 0,
+        "n_fixed_better": 0,
+        "identical_on_every_selection": true,
+        "share_folds_constant_weight": 1.0
+      },
+      "share_folds_same_anchor_insample_vs_nested": 1.0
+    },
+    "openai/gpt-oss-20b": {
+      "parameters": 20900000000.0,
+      "mean_fixed": 0.012451823302697895,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.5,
+            8.0
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            0.5,
+            8.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.012748295286095465,
+        "diff": 0.0002964719833975689,
+        "ci_participant": [
+          -0.0015715248406482864,
+          0.0026217029396013226
+        ],
+        "ci_context": [
+          -0.001499264428528143,
+          0.002569344979282826
+        ],
+        "ci_crossed": [
+          -0.0030727866879902786,
+          0.004566433879487867
+        ],
+        "n_adaptive_better": 6,
+        "n_fixed_better": 5,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.8
+      },
+      "nested": {
+        "mean_adaptive": 0.012451823302697895,
+        "diff": 0.0,
+        "ci_participant": [
+          -0.0011930328550342217,
+          0.0012084592145015106
+        ],
+        "ci_context": [
+          -0.0019037258634756595,
+          0.0019380001502798962
+        ],
+        "ci_crossed": [
+          -0.0033037923588366946,
+          0.0029790198858858164
+        ],
+        "n_adaptive_better": 5,
+        "n_fixed_better": 5,
+        "identical_on_every_selection": false,
+        "share_folds_constant_weight": 0.8
+      },
+      "share_folds_same_anchor_insample_vs_nested": 0.6
+    },
+    "state-spaces/mamba-2.8b-hf": {
+      "parameters": 2800000000.0,
+      "mean_fixed": 0.02223539875481767,
+      "folds_insample": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "folds_nested": [
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 9,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "n_test_participants": 10,
+          "fixed_beta": 1.0,
+          "anchor": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "insample": {
+        "mean_adaptive": 0.02223539875481767,
+        "diff": 0.0,
+        "ci_participant": [
+          0.0,
+          0.0
+        ],
+        "ci_context": [
+          0.0,
+          0.0
+        ],
+        "ci_crossed": [
+          0.0,
+          0.0
+        ],
+        "n_adaptive_better": 0,
+        "n_fixed_better": 0,
+        "identical_on_every_selection": true,
+        "share_folds_constant_weight": 1.0
+      },
+      "nested": {
+        "mean_adaptive": 0.02223539875481767,
+        "diff": 0.0,
+        "ci_participant": [
+          0.0,
+          0.0
+        ],
+        "ci_context": [
+          0.0,
+          0.0
+        ],
+        "ci_crossed": [
+          0.0,
+          0.0
+        ],
+        "n_adaptive_better": 0,
+        "n_fixed_better": 0,
+        "identical_on_every_selection": true,
+        "share_folds_constant_weight": 1.0
+      },
+      "share_folds_same_anchor_insample_vs_nested": 1.0
+    }
+  },
+  "summary": {
+    "insample": {
+      "simultaneous_multiplier": 3.82652108159443,
+      "simultaneous_band": {
+        "EleutherAI/pythia-12b": [
+          -0.004410097927503958,
+          0.007374817761479648
+        ],
+        "Qwen/Qwen2.5-1.5B": [
+          0.0,
+          0.0
+        ],
+        "Qwen/Qwen2.5-14B": [
+          -0.006058338391265331,
+          0.004279506490879917
+        ],
+        "Qwen/Qwen2.5-32B": [
+          -0.0049581277279012945,
+          0.007922847561876984
+        ],
+        "Qwen/Qwen2.5-3B": [
+          0.0,
+          0.0
+        ],
+        "Qwen/Qwen3.5-27B": [
+          -0.004454018211888827,
+          0.0032681302782985515
+        ],
+        "Qwen/Qwen3.6-35B-A3B": [
+          -0.0035953748177294776,
+          0.0030024308509343394
+        ],
+        "allenai/OLMo-2-1124-7B-Instruct": [
+          -0.005176465496263515,
+          0.0205930086329371
+        ],
+        "deepseek-ai/DeepSeek-V2-Lite": [
+          0.0,
+          0.0
+        ],
+        "google/gemma-2-27b": [
+          -0.005629332995467465,
+          0.0038505010950820517
+        ],
+        "google/gemma-2-2b-it": [
+          0.0,
+          0.0
+        ],
+        "google/gemma-2-9b": [
+          -0.014580668839877313,
+          0.015173612806672452
+        ],
+        "google/gemma-4-12b-it": [
+          0.0,
+          0.0
+        ],
+        "google/recurrentgemma-2b": [
+          -0.004330604091064375,
+          0.009074155825425478
+        ],
+        "gpt2": [
+          -0.0031576777046148346,
+          0.0031576777046148346
+        ],
+        "gpt2-large": [
+          0.0,
+          0.0
+        ],
+        "meta-llama/Llama-3.1-8B-Instruct": [
+          -0.008543957837160613,
+          0.006172181969980061
+        ],
+        "mistralai/Mistral-7B-v0.3": [
+          -0.004768631790207665,
+          0.0035827438566173888
+        ],
+        "mistralai/Mixtral-8x7B-v0.1": [
+          -0.005107430085131044,
+          0.0033285981847456306
+        ],
+        "ngram5": [
+          0.0,
+          0.0
+        ],
+        "ngram5_kn": [
+          0.0,
+          0.0
+        ],
+        "ngram5_wiki_kn": [
+          0.0,
+          0.0
+        ],
+        "openai/gpt-oss-20b": [
+          -0.006691349963173583,
+          0.00728429392996872
+        ],
+        "state-spaces/mamba-2.8b-hf": [
+          0.0,
+          0.0
+        ]
+      },
+      "simultaneous_band_excludes_zero": [],
+      "pooled_mean_diff": 0.00034588398063049717,
+      "pooled_mean_diff_ci_crossed": [
+        -0.0002927599817636925,
+        0.001213880830048907
+      ],
+      "counts": {
+        "participant": {
+          "identical_on_every_selection": 10,
+          "ci_favors_adaptive": 2,
+          "ci_favors_fixed": 0,
+          "ci_crosses_zero": 12,
+          "equivalence": {
+            "0.005": {
+              "inside_margin": 23,
+              "outside_margin": 0,
+              "overlapping_margin": 1
+            },
+            "0.010": {
+              "inside_margin": 23,
+              "outside_margin": 0,
+              "overlapping_margin": 1
+            },
+            "0.020": {
+              "inside_margin": 24,
+              "outside_margin": 0,
+              "overlapping_margin": 0
+            }
+          }
+        },
+        "crossed": {
+          "identical_on_every_selection": 10,
+          "ci_favors_adaptive": 1,
+          "ci_favors_fixed": 0,
+          "ci_crosses_zero": 13,
+          "equivalence": {
+            "0.005": {
+              "inside_margin": 18,
+              "outside_margin": 0,
+              "overlapping_margin": 6
+            },
+            "0.010": {
+              "inside_margin": 23,
+              "outside_margin": 0,
+              "overlapping_margin": 1
+            },
+            "0.020": {
+              "inside_margin": 24,
+              "outside_margin": 0,
+              "overlapping_margin": 0
+            }
+          }
+        }
+      }
+    },
+    "nested": {
+      "simultaneous_multiplier": 3.8137662957546916,
+      "simultaneous_band": {
+        "EleutherAI/pythia-12b": [
+          -0.004833076787844522,
+          0.008390740588615348
+        ],
+        "Qwen/Qwen2.5-1.5B": [
+          -0.003506770670044505,
+          0.0023208827364542294
+        ],
+        "Qwen/Qwen2.5-14B": [
+          -0.006041109034010457,
+          0.004262277133625043
+        ],
+        "Qwen/Qwen2.5-32B": [
+          -0.0049366599144847765,
+          0.007901379748460466
+        ],
+        "Qwen/Qwen2.5-3B": [
+          0.0,
+          0.0
+        ],
+        "Qwen/Qwen3.5-27B": [
+          -0.004441148251405824,
+          0.003255260317815548
+        ],
+        "Qwen/Qwen3.6-35B-A3B": [
+          -0.006220865380098088,
+          0.004442033479712675
+        ],
+        "allenai/OLMo-2-1124-7B-Instruct": [
+          -0.005133517330460693,
+          0.020550060467134278
+        ],
+        "deepseek-ai/DeepSeek-V2-Lite": [
+          0.0,
+          0.0
+        ],
+        "google/gemma-2-27b": [
+          -0.009857035082585829,
+          0.005706427315019863
+        ],
+        "google/gemma-2-2b-it": [
+          0.0,
+          0.0
+        ],
+        "google/gemma-2-9b": [
+          -0.014531079476311222,
+          0.015124023443106361
+        ],
+        "google/gemma-4-12b-it": [
+          0.0,
+          0.0
+        ],
+        "google/recurrentgemma-2b": [
+          -0.004308263322736934,
+          0.009051815057098038
+        ],
+        "gpt2": [
+          -0.003147152346982022,
+          0.003147152346982022
+        ],
+        "gpt2-large": [
+          0.0,
+          0.0
+        ],
+        "meta-llama/Llama-3.1-8B-Instruct": [
+          -0.010575815410693716,
+          0.008796983510308302
+        ],
+        "mistralai/Mistral-7B-v0.3": [
+          -0.0047547131411827285,
+          0.0035688252075924526
+        ],
+        "mistralai/Mixtral-8x7B-v0.1": [
+          -0.005093370351547214,
+          0.0033145384511618003
+        ],
+        "ngram5": [
+          0.0,
+          0.0
+        ],
+        "ngram5_kn": [
+          0.0,
+          0.0
+        ],
+        "ngram5_wiki_kn": [
+          0.0,
+          0.0
+        ],
+        "openai/gpt-oss-20b": [
+          -0.0058708936257995115,
+          0.0058708936257995115
+        ],
+        "state-spaces/mamba-2.8b-hf": [
+          0.0,
+          0.0
+        ]
+      },
+      "simultaneous_band_excludes_zero": [],
+      "pooled_mean_diff": 0.0002594129854728729,
+      "pooled_mean_diff_ci_crossed": [
+        -0.0005386248433522166,
+        0.001181026841388624
+      ],
+      "counts": {
+        "participant": {
+          "identical_on_every_selection": 9,
+          "ci_favors_adaptive": 2,
+          "ci_favors_fixed": 1,
+          "ci_crosses_zero": 12,
+          "equivalence": {
+            "0.005": {
+              "inside_margin": 23,
+              "outside_margin": 0,
+              "overlapping_margin": 1
+            },
+            "0.010": {
+              "inside_margin": 23,
+              "outside_margin": 0,
+              "overlapping_margin": 1
+            },
+            "0.020": {
+              "inside_margin": 24,
+              "outside_margin": 0,
+              "overlapping_margin": 0
+            }
+          }
+        },
+        "crossed": {
+          "identical_on_every_selection": 9,
+          "ci_favors_adaptive": 1,
+          "ci_favors_fixed": 0,
+          "ci_crosses_zero": 14,
+          "equivalence": {
+            "0.005": {
+              "inside_margin": 17,
+              "outside_margin": 0,
+              "overlapping_margin": 7
+            },
+            "0.010": {
+              "inside_margin": 23,
+              "outside_margin": 0,
+              "overlapping_margin": 1
+            },
+            "0.020": {
+              "inside_margin": 24,
+              "outside_margin": 0,
+              "overlapping_margin": 0
+            }
+          }
+        }
+      }
+    }
+  }
+}

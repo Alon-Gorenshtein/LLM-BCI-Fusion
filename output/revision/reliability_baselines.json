@@ -1,0 +1,161 @@
+{
+  "n_selections": 3373,
+  "n_boot": 2000,
+  "metrics": {
+    "three_feature_logistic": {
+      "auroc": 0.8677134590821431,
+      "brier": 0.13344786436530248,
+      "ece": 0.04902055305004341,
+      "auroc_lower": 0.8376815450530339,
+      "auroc_upper": 0.901867943078985
+    },
+    "top1_prob_raw": {
+      "auroc": 0.8858717973431418
+    },
+    "top1_prob_logistic": {
+      "auroc": 0.8512429004715798,
+      "brier": 0.14070026022644364,
+      "ece": 0.0625983582964752
+    },
+    "margin_raw": {
+      "auroc": 0.883256878543252
+    },
+    "margin_logistic": {
+      "auroc": 0.8483753031491037,
+      "brier": 0.14247661402199488,
+      "ece": 0.061099097351393114
+    },
+    "entropy_bits_raw": {
+      "auroc": 0.8882522721530035
+    },
+    "entropy_bits_logistic": {
+      "auroc": 0.8678615061202907,
+      "brier": 0.13360523247494058,
+      "ece": 0.050852520979121296
+    }
+  },
+  "offline_versus_online_accuracy": {
+    "neural_argmax_correct": 0.718055143788912,
+    "archive_online_correct": 0.8191520901274829,
+    "neural_argmax_equals_archive_selection": 0.6961162170174918
+  },
+  "total_flashes_by_study": {
+    "StudyB": {
+      "min": 20,
+      "median": 180.0,
+      "max": 200,
+      "n_distinct_values": 9,
+      "conditions": {
+        "CB": 846
+      }
+    },
+    "StudyF": {
+      "min": 14,
+      "median": 90.0,
+      "max": 127,
+      "n_distinct_values": 106,
+      "conditions": {
+        "Static": 360,
+        "Dyn": 359,
+        "DynBigram": 348
+      }
+    },
+    "StudyL": {
+      "min": 84,
+      "median": 126.0,
+      "max": 126,
+      "n_distinct_values": 2,
+      "conditions": {
+        "CB": 330,
+        "CBCol": 330,
+        "RC": 330
+      }
+    },
+    "StudyN": {
+      "min": 14,
+      "median": 55.5,
+      "max": 181,
+      "n_distinct_values": 111,
+      "conditions": {
+        "Dry": 236,
+        "Wet": 234
+      }
+    }
+  },
+  "auroc_contrasts": {
+    "top1_prob_raw": {
+      "auroc_three_feature_minus_this": -0.018158338260998663,
+      "lower": -0.03557443462291476,
+      "upper": -0.004681844120105354
+    },
+    "top1_prob_logistic": {
+      "auroc_three_feature_minus_this": 0.016470558610563346,
+      "lower": 0.008563621656491948,
+      "upper": 0.025477492751706507
+    },
+    "margin_raw": {
+      "auroc_three_feature_minus_this": -0.01554341946110882,
+      "lower": -0.033160786096648104,
+      "upper": -0.0012268084394768313
+    },
+    "margin_logistic": {
+      "auroc_three_feature_minus_this": 0.019338155933039447,
+      "lower": 0.011968102740338368,
+      "upper": 0.02780788678469056
+    },
+    "entropy_bits_raw": {
+      "auroc_three_feature_minus_this": -0.020538813070860362,
+      "lower": -0.03765644035645278,
+      "upper": -0.007498980380169111
+    },
+    "entropy_bits_logistic": {
+      "auroc_three_feature_minus_this": -0.00014804703814752518,
+      "lower": -0.0009039992677672887,
+      "upper": 0.000860933243875863
+    }
+  },
+  "three_feature_auroc_across_random_fold_assignments": {
+    "n_assignments": 30,
+    "mean": 0.8500036469065116,
+    "min": 0.8327554723134674,
+    "max": 0.8697383605071285
+  },
+  "flashes_by_study": {
+    "StudyB": {
+      "n_selections": 846,
+      "min": 20,
+      "median": 180.0,
+      "max": 200,
+      "n_distinct_values": 46,
+      "share_at_modal_value": 0.7021276595744681,
+      "modal_value": 180
+    },
+    "StudyF": {
+      "n_selections": 1067,
+      "min": 12,
+      "median": 90.0,
+      "max": 127,
+      "n_distinct_values": 108,
+      "share_at_modal_value": 0.28865979381443296,
+      "modal_value": 126
+    },
+    "StudyL": {
+      "n_selections": 990,
+      "min": 73,
+      "median": 126.0,
+      "max": 126,
+      "n_distinct_values": 20,
+      "share_at_modal_value": 0.6323232323232323,
+      "modal_value": 126
+    },
+    "StudyN": {
+      "n_selections": 470,
+      "min": 2,
+      "median": 39.0,
+      "max": 181,
+      "n_distinct_values": 136,
+      "share_at_modal_value": 0.036170212765957444,
+      "modal_value": 19
+    }
+  }
+}

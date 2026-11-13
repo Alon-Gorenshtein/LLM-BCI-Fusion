@@ -1,0 +1,107 @@
+{
+ "EleutherAI/pythia-12b": {
+  "checkpoint_id": "EleutherAI/pythia-12b",
+  "checkpoint_revision": "bb1e3e710cdf6b524461d543cfb5ba773f0a81b6",
+  "tokenizer_revision": "bb1e3e710cdf6b524461d543cfb5ba773f0a81b6"
+ },
+ "Qwen/Qwen2.5-1.5B": {
+  "checkpoint_id": "Qwen/Qwen2.5-1.5B",
+  "checkpoint_revision": "8faed761d45a263340a0528343f099c05c9a4323",
+  "tokenizer_revision": "8faed761d45a263340a0528343f099c05c9a4323"
+ },
+ "Qwen/Qwen2.5-14B": {
+  "checkpoint_id": "Qwen/Qwen2.5-14B",
+  "checkpoint_revision": "97e1e76335b7017d8f67c08a19d103c0504298c9",
+  "tokenizer_revision": "97e1e76335b7017d8f67c08a19d103c0504298c9"
+ },
+ "Qwen/Qwen2.5-32B": {
+  "checkpoint_id": "Qwen/Qwen2.5-32B",
+  "checkpoint_revision": "1818d35814b8319459f4bd55ed1ac8709630f003",
+  "tokenizer_revision": "1818d35814b8319459f4bd55ed1ac8709630f003"
+ },
+ "Qwen/Qwen2.5-3B": {
+  "checkpoint_id": "Qwen/Qwen2.5-3B",
+  "checkpoint_revision": "3aab1f1954e9cc14eb9509a215f9e5ca08227a9b",
+  "tokenizer_revision": "3aab1f1954e9cc14eb9509a215f9e5ca08227a9b"
+ },
+ "Qwen/Qwen3.5-27B": {
+  "checkpoint_id": "Qwen/Qwen3.5-27B",
+  "checkpoint_revision": "fc05daec18b0a78c049392ed2e771dde82bdf654",
+  "tokenizer_revision": "fc05daec18b0a78c049392ed2e771dde82bdf654"
+ },
+ "Qwen/Qwen3.6-35B-A3B": {
+  "checkpoint_id": "Qwen/Qwen3.6-35B-A3B",
+  "checkpoint_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+  "tokenizer_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0"
+ },
+ "allenai/OLMo-2-1124-7B-Instruct": {
+  "checkpoint_id": "allenai/OLMo-2-1124-7B-Instruct",
+  "checkpoint_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+  "tokenizer_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84"
+ },
+ "deepseek-ai/DeepSeek-V2-Lite": {
+  "checkpoint_id": "deepseek-ai/DeepSeek-V2-Lite",
+  "checkpoint_revision": "604d5664dddd88a0433dbae533b7fe9472482de0",
+  "tokenizer_revision": "604d5664dddd88a0433dbae533b7fe9472482de0"
+ },
+ "google/gemma-2-27b": {
+  "checkpoint_id": "google/gemma-2-27b",
+  "checkpoint_revision": "938270f5272feb02779b55c2bb2fffdd0f53ff0c",
+  "tokenizer_revision": "938270f5272feb02779b55c2bb2fffdd0f53ff0c"
+ },
+ "google/gemma-2-2b-it": {
+  "checkpoint_id": "google/gemma-2-2b-it",
+  "checkpoint_revision": "299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8",
+  "tokenizer_revision": "299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8"
+ },
+ "google/gemma-2-9b": {
+  "checkpoint_id": "google/gemma-2-9b",
+  "checkpoint_revision": "33c193028431c2fde6c6e51f29e6f17b60cbfac6",
+  "tokenizer_revision": "33c193028431c2fde6c6e51f29e6f17b60cbfac6"
+ },
+ "google/gemma-4-12b-it": {
+  "checkpoint_id": "google/gemma-4-12B-it",
+  "checkpoint_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "tokenizer_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7"
+ },
+ "google/recurrentgemma-2b": {
+  "checkpoint_id": "google/recurrentgemma-2b",
+  "checkpoint_revision": "3620f4ca9c5d16ee56c00180474a3201ec7f734a",
+  "tokenizer_revision": "3620f4ca9c5d16ee56c00180474a3201ec7f734a"
+ },
+ "gpt2": {
+  "checkpoint_id": "openai-community/gpt2",
+  "checkpoint_revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+  "tokenizer_revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e"
+ },
+ "gpt2-large": {
+  "checkpoint_id": "openai-community/gpt2-large",
+  "checkpoint_revision": "32b71b12589c2f8d625668d2335a01cac3249519",
+  "tokenizer_revision": "32b71b12589c2f8d625668d2335a01cac3249519"
+ },
+ "meta-llama/Llama-3.1-8B-Instruct": {
+  "checkpoint_id": "meta-llama/Llama-3.1-8B-Instruct",
+  "checkpoint_revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+  "tokenizer_revision": "0e9e39f249a16976918f6564b8830bc894c89659"
+ },
+ "mistralai/Mistral-7B-v0.3": {
+  "checkpoint_id": "mistralai/Mistral-7B-v0.3",
+  "checkpoint_revision": "caa1feb0e54d415e2df31207e5f4e273e33509b1",
+  "tokenizer_revision": "caa1feb0e54d415e2df31207e5f4e273e33509b1"
+ },
+ "mistralai/Mixtral-8x7B-v0.1": {
+  "checkpoint_id": "mistralai/Mixtral-8x7B-v0.1",
+  "checkpoint_revision": "fc7ac94680e38d7348cfa806e51218e6273104b0",
+  "tokenizer_revision": "fc7ac94680e38d7348cfa806e51218e6273104b0"
+ },
+ "openai/gpt-oss-20b": {
+  "checkpoint_id": "openai/gpt-oss-20b",
+  "checkpoint_revision": "6cee5e81ee83917806bbde320786a8fb61efebee",
+  "tokenizer_revision": "6cee5e81ee83917806bbde320786a8fb61efebee"
+ },
+ "state-spaces/mamba-2.8b-hf": {
+  "checkpoint_id": "state-spaces/mamba-2.8b-hf",
+  "checkpoint_revision": "96c48e0292b63f5346b6d30061af2551f7101e26",
+  "tokenizer_revision": "96c48e0292b63f5346b6d30061af2551f7101e26"
+ }
+}

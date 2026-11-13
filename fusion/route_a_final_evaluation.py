@@ -1,4 +1,4 @@
-"""Route A step 4 (design spec section 15.3): freeze the Route A controller using only dev
+"""Route A step 4: freeze the Route A controller using only dev
 (StudyF + StudyL + StudyN), then evaluate it exactly once against the best-fixed-beta control on
 the StudyB holdout. `evaluate_route_a_on_holdout` must be called at most once per prior_model in any
 real run of this study -- repeated calls during development would defeat the point of the holdout,

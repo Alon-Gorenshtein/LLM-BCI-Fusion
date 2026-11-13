@@ -2,14 +2,22 @@
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from fusion.net_gain import orient_adaptive_minus_fixed  # noqa: E402
+
 TAB_DIR = ROOT / "output" / "tables"
 TAB_DIR.mkdir(parents=True, exist_ok=True)
 
 with open(ROOT / "output" / "results_digest.json") as f:
     D = json.load(f)
+
+with open(ROOT / "output" / "ladder_full_battery.json") as f:
+    LADDER = json.load(f)
 
 
 def write_md(name: str, header: list[str], rows: list[list[str]]):
@@ -145,7 +153,7 @@ def etable5b_transport_fused_correct():
 
 
 def etable6_rescue():
-    header = ["Prior", "Outcome", "Best-fixed rate", "Tuned-adaptive rate", "Difference", "Lower 95% CI", "Upper 95% CI", "Chosen fixed betas", "Chosen anchors"]
+    header = ["Prior", "Outcome", "Best-fixed rate", "Tuned-adaptive rate", "Tuned-adaptive minus best-fixed", "Lower 95% CI", "Upper 95% CI", "Chosen fixed betas", "Chosen anchors"]
     rows = []
     for prior in ["gpt2", "ngram5_kn"]:
         r = D["rescue"][prior]
@@ -153,13 +161,13 @@ def etable6_rescue():
             rr = r[outcome]
             rows.append([
                 prior, _OUTCOME_LABELS[outcome], fmt(rr["best_fixed_rate"]), fmt(rr["tuned_adaptive_rate"]),
-                fmt(rr["rate_diff_point"], 6), fmt(rr["rate_diff_lower"], 6), fmt(rr["rate_diff_upper"], 6),
+                fmt(-rr["rate_diff_point"], 6), fmt(-rr["rate_diff_upper"], 6), fmt(-rr["rate_diff_lower"], 6),
                 str(rr["chosen_fixed_betas"]), str(rr["chosen_anchors"]),
             ])
         ng = r["net_gain_comparison"]
         rows.append([
             prior, "Net correct gain", fmt(ng["best_fixed_net_gain"]), fmt(ng["tuned_adaptive_net_gain"]),
-            fmt(ng["net_gain_diff_point"], 6), fmt(ng["net_gain_diff_lower"], 6), fmt(ng["net_gain_diff_upper"], 6),
+            fmt(-ng["net_gain_diff_point"], 6), fmt(-ng["net_gain_diff_upper"], 6), fmt(-ng["net_gain_diff_lower"], 6),
             "", "",
         ])
     write_md("eTable6_rescue_comparison", header, rows)
@@ -189,6 +197,37 @@ def etable7_bh():
     write_csv("eTable7_bh_correction", header, rows)
 
 
+def etable15_ladder_fair_comparison():
+    """All 22 evaluable priors under the fair, matched-search-space (rescue) comparison (Results:
+    "No prior favored adaptive fusion"; Supplement S1.4) -- the 21-evaluation ladder extension
+    (ladder_full_battery.json's fair_search_by_prior, which already includes a re-validation of
+    ngram5_kn) merged with gpt2's own already-published rescue result (results_digest.json's
+    "rescue" key, computed by the identical procedure -- Methods) so all 22 evaluable priors appear
+    as one unique set. `net_gain_diff_*` in the stored results is best-fixed MINUS tuned-adaptive
+    (the bootstrap is called with arm order best_fixed, tuned_adaptive), so the table converts it
+    with orient_adaptive_minus_fixed; positive values favor adaptive."""
+    header = [
+        "Prior model", "Parameters", "Best-fixed net correct gain", "Tuned-adaptive net correct gain",
+        "Adaptive minus fixed", "Lower 95% CI", "Upper 95% CI",
+    ]
+    rows = []
+    fair = dict(LADDER["fair_search_by_prior"])
+    fair["gpt2"] = {"net_gain_comparison": D["rescue"]["gpt2"]["net_gain_comparison"]}
+    params_by_prior = {name: p["prior_parameters"] for name, p in LADDER["aim1_four_arm_by_prior"].items()}
+    params_by_prior["gpt2"] = 124_000_000
+    for name in sorted(fair, key=lambda n: params_by_prior[n]):
+        ng = fair[name]["net_gain_comparison"]
+        oriented = orient_adaptive_minus_fixed(ng)
+        rows.append([
+            name, str(params_by_prior[name]),
+            fmt(ng["best_fixed_net_gain"]), fmt(ng["tuned_adaptive_net_gain"]),
+            fmt(oriented["adaptive_minus_fixed_point"]), fmt(oriented["adaptive_minus_fixed_lower"]),
+            fmt(oriented["adaptive_minus_fixed_upper"]),
+        ])
+    write_md("eTable15_ladder_fair_comparison", header, rows)
+    write_csv("eTable15_ladder_fair_comparison", header, rows)
+
+
 if __name__ == "__main__":
     etable1_arm_rates()
     etable2_contrasts()
@@ -199,4 +238,5 @@ if __name__ == "__main__":
     etable5b_transport_fused_correct()
     etable6_rescue()
     etable7_bh()
+    # eTable 15 onward are built from the revision analyses by build_revision_tables.py
     print("Wrote eTable1-7 (+4b, 5b) to", TAB_DIR)

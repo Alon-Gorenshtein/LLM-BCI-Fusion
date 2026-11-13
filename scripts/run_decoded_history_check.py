@@ -1,4 +1,4 @@
-"""Real run of the decoded-history replay robustness check (design spec section 16). No holdout,
+"""Real run of the decoded-history replay robustness check. No holdout,
 no new tuning -- both betas are already frozen from the original Aims 1-4 rescue analysis, recomputed
 here only as a read-off via the existing public route_a_dev_wide_best_fixed_beta.
 """

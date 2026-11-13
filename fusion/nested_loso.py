@@ -1,4 +1,4 @@
-"""Nested leave-one-study-out orchestration (design spec section 17.3). This is NOT a fresh single
+"""Nested leave-one-study-out orchestration. This is NOT a fresh single
 holdout -- neither Study N nor Study B can honestly be called untouched for this architecture, since
 both already had a frozen policy evaluated against them and those results shaped this redesign. Every
 selection instead gets exactly one out-of-study prediction, from the one outer fold where its own

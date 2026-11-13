@@ -1,12 +1,11 @@
-"""Round 3 addendum, design spec S14.2 item 2: freeze ONE policy per arm, selected using
+"""Freeze ONE policy per arm, selected using
 fused_correct (the redesigned primary endpoint's own selection objective) only, then report every
-outcome under that same frozen policy -- rather than the original per-outcome policy selection
-(design spec S3.1 Limitation 6). Reuses fusion.rescue's existing, already-verified functions: both
+outcome under that same frozen policy -- rather than the original per-outcome policy selection. Reuses fusion.rescue's existing, already-verified functions: both
 already return every outcome column for whichever beta/anchor they chose, so no new fitting is
 needed here, only reading the other outcome columns off the frame each function already produces.
 This is the original Aims 1-4 rescue analysis's own participant-grouped cross-validation across all
-four studies -- it has no Study-N-holdout concept and touches nothing the Version 2 addendum
-protects.
+four studies -- it has no Study-N-holdout concept and touches nothing the joint gate's
+holdout protects.
 """
 from __future__ import annotations
 

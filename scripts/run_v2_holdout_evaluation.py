@@ -1,6 +1,6 @@
-"""The single real evaluation the Version 2 addendum exists to produce. Run this exactly once per
+"""The single real evaluation of the frozen joint gate. Run this exactly once per
 prior_model. Do not re-run with different thresholds or features after seeing the result -- record
-whichever direction it points, per the design spec S13.6 honesty requirement.
+the result whichever direction it points.
 """
 import sys
 from pathlib import Path

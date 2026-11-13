@@ -1,9 +1,0 @@
-Prior,Arm,N,Fused correct,Neural correct,Prior capture,Phantom agreement,Net correct gain
-gpt2,adaptive,3373,0.7305,0.7181,0.0246,0.0371,0.0125
-gpt2,fixed,3373,0.7373,0.7181,0.0190,0.0382,0.0193
-gpt2,floor,3373,0.7181,0.7181,0.0000,0.0000,0.0000
-gpt2,oracle,3373,0.7892,0.7181,0.0033,0.0744,0.0712
-ngram5_kn,adaptive,3373,0.7931,0.7181,0.0059,0.0809,0.0750
-ngram5_kn,fixed,3373,0.7969,0.7181,0.0053,0.0842,0.0789
-ngram5_kn,floor,3373,0.7181,0.7181,0.0000,0.0000,0.0000
-ngram5_kn,oracle,3373,0.8390,0.7181,0.0003,0.1213,0.1210

@@ -1,4 +1,4 @@
-"""Version 2 addendum step 1 (design spec S13.2): does cross-fitted temperature calibration of the
+"""Joint gate, step 1: does cross-fitted temperature calibration of the
 two posteriors change the fixed-versus-adaptive picture, before any new gate is built?
 
 Dev-only. `run_calibrated_four_arm_comparison` splits with `fusion.holdout.split_dev_test` and keeps

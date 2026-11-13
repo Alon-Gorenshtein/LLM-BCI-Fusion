@@ -1,5 +1,4 @@
-"""Diagnostics and the full reporting list for the nested-LOSO candidate-arbitration result
-(design spec section 17.4). Oracle-headroom-recovered needs the grid oracle's own accuracy at each
+"""Diagnostics and the full reporting list for the nested-LOSO candidate-arbitration result. Oracle-headroom-recovered needs the grid oracle's own accuracy at each
 selection's own beta grid, already materialized as fused_correct across BETA_GRID in
 attribution.parquet -- the oracle's accuracy per selection is simply whether ANY grid beta produced
 the correct answer.
@@ -9,6 +8,7 @@ from __future__ import annotations
 import pandas as pd
 
 from fusion.arms import KEY_COLUMNS
+from fusion.stats import participant_cluster_bootstrap_rate_diff
 
 _KEY = list(KEY_COLUMNS)
 
@@ -26,7 +26,7 @@ def summarize_nested_loso(
     scored["chosen_correct"] = scored["chosen_candidate"] == (scored["target_code"] - 1)
 
     fixed = best_fixed_arm.merge(nested_result[_KEY], on=_KEY, how="inner", validate="one_to_one")
-    # Primary endpoint (spec section 17.4): candidate-arbitration vs nested-CV BEST-FIXED fusion,
+    # Primary endpoint: candidate-arbitration vs nested-CV BEST-FIXED fusion,
     # not vs neural-only -- fixed["fused_correct"] is that best-fixed comparator's own correctness.
     net_correct_gain = scored["chosen_correct"].astype(int).mean() - fixed["fused_correct"].astype(int).mean()
 
@@ -50,6 +50,20 @@ def summarize_nested_loso(
 
     joined = scored.merge(fixed[_KEY + ["fused_correct"]], on=_KEY, how="inner", validate="one_to_one")
     joined = joined.rename(columns={"fused_correct": "fixed_correct"})
+    long_frame = pd.concat(
+        [
+            joined[["participant_id"]].assign(
+                arm="candidate_arbitration", correct=joined["chosen_correct"].astype(int)
+            ),
+            joined[["participant_id"]].assign(
+                arm="best_fixed", correct=joined["fixed_correct"].astype(int)
+            ),
+        ],
+        ignore_index=True,
+    )
+    _, net_correct_gain_ci_lower, net_correct_gain_ci_upper = participant_cluster_bootstrap_rate_diff(
+        long_frame, outcome="correct", arm_a="candidate_arbitration", arm_b="best_fixed"
+    )
     # joined already carries "overridden" (inherited from nested_result via scored) -- no join needed.
     intervened = joined[joined["overridden"]]
 
@@ -75,6 +89,8 @@ def summarize_nested_loso(
     return {
         "overall_correctness": float(scored["chosen_correct"].astype(int).mean()),
         "net_correct_gain": float(net_correct_gain),
+        "net_correct_gain_ci_lower": float(net_correct_gain_ci_lower),
+        "net_correct_gain_ci_upper": float(net_correct_gain_ci_upper),
         "prior_capture_rate": float(prior_capture.mean()),
         "phantom_agreement_rate": float(phantom_agreement.mean()),
         "intervention_rate": float(nested_result["overridden"].astype(int).mean()),

@@ -5,6 +5,7 @@ never entangled with that study's own git history.
 """
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
@@ -26,7 +27,8 @@ def _find_authorship_root(start: Path) -> Path:
     )
 
 
-AUTHORSHIP_ROOT = _find_authorship_root(Path(__file__))
+_ROOT_OVERRIDE = os.environ.get("FUSION_COMPANION_ROOT")
+AUTHORSHIP_ROOT = Path(_ROOT_OVERRIDE) if _ROOT_OVERRIDE else _find_authorship_root(Path(__file__))
 if str(AUTHORSHIP_ROOT) not in sys.path:
     sys.path.insert(0, str(AUTHORSHIP_ROOT))
 

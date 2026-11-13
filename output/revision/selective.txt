@@ -1,0 +1,91 @@
+Selective prediction against standard confidence baselines
+Participant-cluster bootstrap draws: 2000; coverage grid 0.01 to 1.00 (100 points); ranking within each outer held-out study.
+Lower AURC is better. Inverted signals (entropy, JS divergence) are negated before ranking.
+
+=== gpt2 ===
+Selections 3373, participants 47, fixed-weight errors 886 (error rate 0.2627)
+
+AURC and excess AURC (95% interval)
+  candidate_ranker_p_hat       AURC 0.1030 (0.0626 to 0.1621)  excess 0.0567 (0.0367 to 0.0809)
+  fixed_fused_top1_prob        AURC 0.0838 (0.0490 to 0.1375)  excess 0.0375 (0.0231 to 0.0558)
+  fixed_fused_margin           AURC 0.0845 (0.0493 to 0.1384)  excess 0.0382 (0.0235 to 0.0566)
+  fixed_fused_entropy_bits     AURC 0.0830 (0.0484 to 0.1368)  excess 0.0367 (0.0224 to 0.0550)
+  neural_top1_prob             AURC 0.0918 (0.0544 to 0.1477)  excess 0.0455 (0.0289 to 0.0675)
+  neural_margin                AURC 0.0930 (0.0553 to 0.1490)  excess 0.0467 (0.0296 to 0.0688)
+  reliability_g_hat            AURC 0.0903 (0.0534 to 0.1455)  excess 0.0440 (0.0278 to 0.0654)
+  neural_lm_js_divergence      AURC 0.2573 (0.1791 to 0.3359)  excess 0.2110 (0.1529 to 0.2607)
+  random_ranking               AURC 0.2627 (0.1882 to 0.3418)  excess 0.2163 (0.1615 to 0.2623)
+  oracle_ranking               AURC 0.0463 (0.0251 to 0.0828)  excess 0.0000 (0.0000 to 0.0000)
+
+AURC difference against fixed_fused_top1_prob (negative favours the signal); Holm across 7 contrasts
+  candidate_ranker_p_hat       0.0192 (0.0108 to 0.0287)  p 0.0010  Holm p 0.0070
+  fixed_fused_margin           0.0007 (0.0002 to 0.0012)  p 0.0070  Holm p 0.0070
+  fixed_fused_entropy_bits     -0.0008 (-0.0017 to -0.0003)  p 0.0030  Holm p 0.0070
+  neural_top1_prob             0.0080 (0.0045 to 0.0132)  p 0.0010  Holm p 0.0070
+  neural_margin                0.0092 (0.0055 to 0.0146)  p 0.0010  Holm p 0.0070
+  reliability_g_hat            0.0065 (0.0032 to 0.0115)  p 0.0010  Holm p 0.0070
+  neural_lm_js_divergence      0.1735 (0.1242 to 0.2138)  p 0.0010  Holm p 0.0070
+
+5% of selections flagged (lowest confidence, within study)
+  candidate_ranker_p_hat       flagged 169, errors total 886, errors among flagged 117; captured 0.1321 (0.1048 to 0.1650); enrichment 2.636 (2.069 to 3.566)
+  fixed_fused_top1_prob        flagged 169, errors total 886, errors among flagged 136; captured 0.1535 (0.1162 to 0.1954); enrichment 3.064 (2.414 to 4.149)
+  fixed_fused_margin           flagged 169, errors total 886, errors among flagged 130; captured 0.1467 (0.1173 to 0.1791); enrichment 2.928 (2.311 to 3.959)
+  fixed_fused_entropy_bits     flagged 169, errors total 886, errors among flagged 133; captured 0.1501 (0.1064 to 0.2010); enrichment 2.996 (2.362 to 4.078)
+  neural_top1_prob             flagged 169, errors total 886, errors among flagged 111; captured 0.1253 (0.0871 to 0.1710); enrichment 2.500 (1.968 to 3.379)
+  neural_margin                flagged 169, errors total 886, errors among flagged 112; captured 0.1264 (0.0945 to 0.1649); enrichment 2.523 (2.028 to 3.344)
+  reliability_g_hat            flagged 169, errors total 886, errors among flagged 121; captured 0.1366 (0.0873 to 0.1985); enrichment 2.726 (2.160 to 3.653)
+  neural_lm_js_divergence      flagged 169, errors total 886, errors among flagged 17; captured 0.0192 (0.0106 to 0.0282); enrichment 0.383 (0.214 to 0.561)
+
+10% of selections flagged (lowest confidence, within study)
+  candidate_ranker_p_hat       flagged 338, errors total 886, errors among flagged 232; captured 0.2619 (0.2172 to 0.3171); enrichment 2.613 (2.095 to 3.482)
+  fixed_fused_top1_prob        flagged 338, errors total 886, errors among flagged 247; captured 0.2788 (0.2335 to 0.3322); enrichment 2.782 (2.237 to 3.661)
+  fixed_fused_margin           flagged 338, errors total 886, errors among flagged 247; captured 0.2788 (0.2372 to 0.3285); enrichment 2.782 (2.250 to 3.653)
+  fixed_fused_entropy_bits     flagged 338, errors total 886, errors among flagged 255; captured 0.2878 (0.2307 to 0.3575); enrichment 2.872 (2.310 to 3.808)
+  neural_top1_prob             flagged 338, errors total 886, errors among flagged 221; captured 0.2494 (0.1988 to 0.3131); enrichment 2.489 (2.022 to 3.263)
+  neural_margin                flagged 338, errors total 886, errors among flagged 212; captured 0.2393 (0.1876 to 0.3018); enrichment 2.388 (1.940 to 3.098)
+  reliability_g_hat            flagged 338, errors total 886, errors among flagged 232; captured 0.2619 (0.1951 to 0.3481); enrichment 2.613 (2.096 to 3.450)
+  neural_lm_js_divergence      flagged 338, errors total 886, errors among flagged 61; captured 0.0688 (0.0507 to 0.0890); enrichment 0.687 (0.518 to 0.858)
+
+=== ngram5_kn ===
+Selections 3373, participants 47, fixed-weight errors 675 (error rate 0.2001)
+
+AURC and excess AURC (95% interval)
+  candidate_ranker_p_hat       AURC 0.0973 (0.0653 to 0.1371)  excess 0.0727 (0.0499 to 0.0999)
+  fixed_fused_top1_prob        AURC 0.0505 (0.0292 to 0.0813)  excess 0.0260 (0.0155 to 0.0401)
+  fixed_fused_margin           AURC 0.0503 (0.0292 to 0.0814)  excess 0.0257 (0.0153 to 0.0395)
+  fixed_fused_entropy_bits     AURC 0.0525 (0.0305 to 0.0839)  excess 0.0280 (0.0168 to 0.0432)
+  neural_top1_prob             AURC 0.0754 (0.0471 to 0.1163)  excess 0.0509 (0.0328 to 0.0744)
+  neural_margin                AURC 0.0755 (0.0474 to 0.1169)  excess 0.0510 (0.0330 to 0.0751)
+  reliability_g_hat            AURC 0.0749 (0.0467 to 0.1155)  excess 0.0504 (0.0324 to 0.0738)
+  neural_lm_js_divergence      AURC 0.1329 (0.0914 to 0.1848)  excess 0.1083 (0.0766 to 0.1445)
+  random_ranking               AURC 0.2001 (0.1434 to 0.2587)  excess 0.1756 (0.1296 to 0.2160)
+  oracle_ranking               AURC 0.0246 (0.0136 to 0.0430)  excess 0.0000 (0.0000 to 0.0000)
+
+AURC difference against fixed_fused_top1_prob (negative favours the signal); Holm across 7 contrasts
+  candidate_ranker_p_hat       0.0467 (0.0298 to 0.0664)  p 0.0010  Holm p 0.0070
+  fixed_fused_margin           -0.0003 (-0.0012 to 0.0005)  p 0.4428  Holm p 0.4428
+  fixed_fused_entropy_bits     0.0020 (0.0004 to 0.0042)  p 0.0120  Holm p 0.0240
+  neural_top1_prob             0.0249 (0.0156 to 0.0376)  p 0.0010  Holm p 0.0070
+  neural_margin                0.0250 (0.0162 to 0.0382)  p 0.0010  Holm p 0.0070
+  reliability_g_hat            0.0244 (0.0150 to 0.0369)  p 0.0010  Holm p 0.0070
+  neural_lm_js_divergence      0.0823 (0.0566 to 0.1098)  p 0.0010  Holm p 0.0070
+
+5% of selections flagged (lowest confidence, within study)
+  candidate_ranker_p_hat       flagged 169, errors total 675, errors among flagged 99; captured 0.1467 (0.1141 to 0.1858); enrichment 2.927 (2.241 to 4.093)
+  fixed_fused_top1_prob        flagged 169, errors total 675, errors among flagged 129; captured 0.1911 (0.1449 to 0.2468); enrichment 3.814 (3.006 to 5.214)
+  fixed_fused_margin           flagged 169, errors total 675, errors among flagged 122; captured 0.1807 (0.1321 to 0.2407); enrichment 3.607 (2.858 to 4.847)
+  fixed_fused_entropy_bits     flagged 169, errors total 675, errors among flagged 118; captured 0.1748 (0.1281 to 0.2281); enrichment 3.489 (2.754 to 4.763)
+  neural_top1_prob             flagged 169, errors total 675, errors among flagged 98; captured 0.1452 (0.0994 to 0.2000); enrichment 2.898 (2.303 to 3.934)
+  neural_margin                flagged 169, errors total 675, errors among flagged 97; captured 0.1437 (0.1041 to 0.1905); enrichment 2.868 (2.324 to 3.777)
+  reliability_g_hat            flagged 169, errors total 675, errors among flagged 100; captured 0.1481 (0.0973 to 0.2108); enrichment 2.957 (2.326 to 4.125)
+  neural_lm_js_divergence      flagged 169, errors total 675, errors among flagged 73; captured 0.1081 (0.0806 to 0.1407); enrichment 2.158 (1.535 to 3.059)
+
+10% of selections flagged (lowest confidence, within study)
+  candidate_ranker_p_hat       flagged 338, errors total 675, errors among flagged 203; captured 0.3007 (0.2442 to 0.3615); enrichment 3.001 (2.419 to 3.943)
+  fixed_fused_top1_prob        flagged 338, errors total 675, errors among flagged 229; captured 0.3393 (0.2778 to 0.4095); enrichment 3.386 (2.718 to 4.556)
+  fixed_fused_margin           flagged 338, errors total 675, errors among flagged 226; captured 0.3348 (0.2793 to 0.3988); enrichment 3.341 (2.662 to 4.487)
+  fixed_fused_entropy_bits     flagged 338, errors total 675, errors among flagged 227; captured 0.3363 (0.2741 to 0.4053); enrichment 3.356 (2.670 to 4.564)
+  neural_top1_prob             flagged 338, errors total 675, errors among flagged 178; captured 0.2637 (0.2004 to 0.3402); enrichment 2.632 (2.153 to 3.413)
+  neural_margin                flagged 338, errors total 675, errors among flagged 174; captured 0.2578 (0.1989 to 0.3260); enrichment 2.572 (2.112 to 3.309)
+  reliability_g_hat            flagged 338, errors total 675, errors among flagged 186; captured 0.2756 (0.2017 to 0.3674); enrichment 2.750 (2.243 to 3.594)
+  neural_lm_js_divergence      flagged 338, errors total 675, errors among flagged 145; captured 0.2148 (0.1673 to 0.2675); enrichment 2.144 (1.669 to 2.812)

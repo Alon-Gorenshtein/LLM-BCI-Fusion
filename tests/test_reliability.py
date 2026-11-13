@@ -3,7 +3,7 @@ import pandas as pd
 import pytest
 
 from fusion.reliability import (
-    fit_reliability_cv, reliability_auroc, reliability_calibration_error,
+    fit_reliability_cv, fit_reliability_frozen, reliability_auroc, reliability_calibration_error,
 )
 
 
@@ -54,3 +54,31 @@ def test_calibration_error_is_near_zero_for_well_calibrated_predictions():
         "neural_correct": [True] * 9 + [False] * 1 + [False] * 9 + [True] * 1,
     })
     assert reliability_calibration_error(frame, n_bins=10) < 0.05
+
+
+def test_fit_reliability_frozen_returns_one_probability_per_test_row():
+    train = _synthetic_frame(seed=2)
+    test = _synthetic_frame(seed=3, n_participants=5)
+    g_hat = fit_reliability_frozen(train, test)
+    assert len(g_hat) == len(test)
+    assert g_hat.between(0, 1).all()
+    assert g_hat.name == "g_hat"
+
+
+def test_fit_reliability_frozen_never_uses_test_labels():
+    train = _synthetic_frame(seed=4)
+    test = _synthetic_frame(seed=5, n_participants=5)
+    g_hat_before = fit_reliability_frozen(train, test)
+    test_corrupted = test.copy()
+    test_corrupted["neural_correct"] = ~test_corrupted["neural_correct"]
+    g_hat_after = fit_reliability_frozen(train, test_corrupted)
+    assert np.allclose(g_hat_before.to_numpy(), g_hat_after.to_numpy())
+
+
+def test_fit_reliability_frozen_higher_margin_predicts_correctness():
+    train = _synthetic_frame(seed=6)
+    test = _synthetic_frame(seed=7, n_participants=5)
+    g_hat = fit_reliability_frozen(train, test)
+    result = test.copy()
+    result["g_hat"] = g_hat.to_numpy()
+    assert reliability_auroc(result) > 0.6

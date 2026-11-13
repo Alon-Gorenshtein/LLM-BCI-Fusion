@@ -64,6 +64,103 @@ def participant_cluster_bootstrap_rate_diff(
     return float(point), float(lower), float(upper)
 
 
+def participant_cluster_bootstrap_abstention_metrics(
+    frame: pd.DataFrame,
+    participant_column: str,
+    flagged_column: str,
+    correct_column: str,
+    n_bootstrap: int = N_BOOTSTRAP,
+) -> dict[str, tuple[float, float, float]]:
+    """Participant-cluster bootstrap 95% CIs for the three headline selective-abstention metrics,
+    given a boolean flagged_column already computed on the real (point-estimate) data. Resampling
+    participants with replacement, matching participant_cluster_bootstrap_rate_diff's convention.
+    """
+    def _metrics(sub: pd.DataFrame) -> dict[str, float]:
+        flagged = sub[flagged_column].astype(bool)
+        correct = sub[correct_column].astype(bool)
+        n_total_errors = int((~correct).sum())
+        n_flagged = int(flagged.sum())
+        n_flagged_errors = int((~correct[flagged]).sum()) if n_flagged else 0
+        error_fraction_captured = n_flagged_errors / n_total_errors if n_total_errors else float("nan")
+        overall_error_rate = n_total_errors / len(sub) if len(sub) else float("nan")
+        flagged_error_rate = n_flagged_errors / n_flagged if n_flagged else float("nan")
+        enrichment = flagged_error_rate / overall_error_rate if overall_error_rate else float("nan")
+        retained_accuracy = (
+            correct[~flagged].astype(int).mean() if (~flagged).any() else float("nan")
+        )
+        return {
+            "error_fraction_captured": error_fraction_captured,
+            "enrichment": enrichment,
+            "retained_accuracy": float(retained_accuracy),
+        }
+
+    point = _metrics(frame)
+    rng = np.random.default_rng(RANDOM_STATE)
+    participants = frame[participant_column].unique()
+    by_participant = {p: sub for p, sub in frame.groupby(participant_column)}
+    draws = {key: np.empty(n_bootstrap) for key in point}
+    for i in range(n_bootstrap):
+        sample = rng.choice(participants, size=len(participants), replace=True)
+        resampled = pd.concat([by_participant[p] for p in sample])
+        boot_metrics = _metrics(resampled)
+        for key in point:
+            draws[key][i] = boot_metrics[key]
+
+    result = {}
+    for key, point_value in point.items():
+        valid = draws[key][~np.isnan(draws[key])]
+        lower, upper = np.percentile(valid, [2.5, 97.5]) if len(valid) else (float("nan"), float("nan"))
+        result[key] = (point_value, float(lower), float(upper))
+    return result
+
+
+def participant_cluster_bootstrap_paired_metric_difference(
+    frame: pd.DataFrame,
+    participant_column: str,
+    flagged_column_a: str,
+    flagged_column_b: str,
+    correct_column: str,
+    metric: str,
+    n_bootstrap: int = N_BOOTSTRAP,
+) -> tuple[float, float, float]:
+    """Participant-cluster bootstrap 95% CI for metric(signal_a) - metric(signal_b), using the
+    SAME resampled participants for both signals in each bootstrap iteration (a paired design) --
+    appropriate when both signals are evaluated on the same selections, so their errors are
+    correlated and an unpaired CI-overlap comparison is under-powered. `metric` must be one of
+    "error_fraction_captured", "enrichment", "retained_accuracy" (the same three keys
+    participant_cluster_bootstrap_abstention_metrics computes).
+    """
+    if metric not in ("error_fraction_captured", "enrichment", "retained_accuracy"):
+        raise ValueError(f"unknown metric: {metric!r}")
+
+    def _one_metric(sub: pd.DataFrame, flagged_column: str) -> float:
+        flagged = sub[flagged_column].astype(bool)
+        correct = sub[correct_column].astype(bool)
+        n_total_errors = int((~correct).sum())
+        n_flagged = int(flagged.sum())
+        n_flagged_errors = int((~correct[flagged]).sum()) if n_flagged else 0
+        if metric == "error_fraction_captured":
+            return n_flagged_errors / n_total_errors if n_total_errors else float("nan")
+        if metric == "retained_accuracy":
+            return float(correct[~flagged].astype(int).mean()) if (~flagged).any() else float("nan")
+        overall_error_rate = n_total_errors / len(sub) if len(sub) else float("nan")
+        flagged_error_rate = n_flagged_errors / n_flagged if n_flagged else float("nan")
+        return flagged_error_rate / overall_error_rate if overall_error_rate else float("nan")
+
+    point = _one_metric(frame, flagged_column_a) - _one_metric(frame, flagged_column_b)
+    rng = np.random.default_rng(RANDOM_STATE)
+    participants = frame[participant_column].unique()
+    by_participant = {p: sub for p, sub in frame.groupby(participant_column)}
+    diffs = np.empty(n_bootstrap)
+    for i in range(n_bootstrap):
+        sample = rng.choice(participants, size=len(participants), replace=True)
+        resampled = pd.concat([by_participant[p] for p in sample])
+        diffs[i] = _one_metric(resampled, flagged_column_a) - _one_metric(resampled, flagged_column_b)
+    valid = diffs[~np.isnan(diffs)]
+    lower, upper = np.percentile(valid, [2.5, 97.5]) if len(valid) else (float("nan"), float("nan"))
+    return float(point), float(lower), float(upper)
+
+
 def oracle_gap_closure(long_frame: pd.DataFrame, outcome: str) -> float:
     """Fraction of the fixed-to-oracle gap the adaptive arm closes for `outcome`.
 

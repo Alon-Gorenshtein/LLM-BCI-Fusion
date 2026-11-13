@@ -1,4 +1,4 @@
-"""Round 3 addendum, design spec S14.2 item 4: characterize the two component classifiers inside
+"""characterize the two component classifiers inside
 the arbitration gate (fusion.arbitration.fit_net_benefit_model), which only ever surface as their
 difference V(x) elsewhere. Dev-only (Studies B, F, L) -- this module never reads Study N and never
 calls fusion.final_evaluation.evaluate_on_holdout or evaluate_frozen_policy.
@@ -125,7 +125,7 @@ def classify_gate_deviation_outcomes(
     dev_attribution: pd.DataFrame,
     best_fixed_beta: float,
 ) -> dict:
-    """Design spec S14.2 item 4's dev-side helped/hurt/no-effect split: for the dev selections where
+    """The dev-side helped/hurt/no-effect split: for the dev selections where
     the frozen gate moves off the best fixed beta, did that move change the fused selection from
     incorrect to correct (helped), from correct to incorrect (hurt), or neither (no effect)?
 

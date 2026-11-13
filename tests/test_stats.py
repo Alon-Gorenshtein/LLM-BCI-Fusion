@@ -4,7 +4,8 @@ import pytest
 
 from fusion.stats import (
     oracle_gap_closure, benjamini_hochberg, participant_cluster_bootstrap_rate_diff,
-    cluster_robust_contrast,
+    cluster_robust_contrast, participant_cluster_bootstrap_abstention_metrics,
+    participant_cluster_bootstrap_paired_metric_difference,
 )
 
 
@@ -131,3 +132,101 @@ def test_cluster_robust_contrast_intercept_has_the_correct_sign_for_a_sub_50pct_
     table = cluster_robust_contrast(frame, "prior_capture", reference_arm="fixed")
     intercept = table.loc["Intercept", table.columns[0]]
     assert intercept < 0, f"reference arm's rate is under 50%, so its log-odds intercept must be negative; got {intercept}"
+
+
+def test_participant_cluster_bootstrap_abstention_metrics_matches_hand_calculation():
+    # 4 participants, 5 rows each. flagged = the 2 lowest-index rows per participant (arbitrary but
+    # fixed); correct = True except for the 2 flagged rows of participant 0 and 1 rows of
+    # participant 2 (hand-countable).
+    rows = []
+    for participant in range(4):
+        for i in range(5):
+            flagged = i < 2
+            correct = not (flagged and participant in (0, 1)) and not (i == 2 and participant == 2)
+            rows.append({"participant_id": f"P{participant}", "flagged": flagged, "correct": correct})
+    frame = pd.DataFrame(rows)
+
+    # Hand count: total rows = 20. Errors: P0 rows 0,1 (2); P1 rows 0,1 (2); P2 row 2 (1) = 5 total.
+    # Flagged rows = rows 0,1 for every participant = 8 rows. Flagged errors = P0's 2 + P1's 2 = 4
+    # (P2's error is at row 2, unflagged). error_fraction_captured = 4/5 = 0.8.
+    result = participant_cluster_bootstrap_abstention_metrics(
+        frame, participant_column="participant_id", flagged_column="flagged",
+        correct_column="correct", n_bootstrap=200,
+    )
+    assert set(result.keys()) == {"error_fraction_captured", "enrichment", "retained_accuracy"}
+    point, lower, upper = result["error_fraction_captured"]
+    assert abs(point - 0.8) < 1e-9
+    assert lower <= point <= upper
+
+
+def _paired_fixture():
+    # Same 4-participant/5-rows-each layout and error pattern as the fixture above (errors: P0
+    # rows 0,1; P1 rows 0,1; P2 row 2 -- 5 total errors out of 20 rows), but with TWO flagged
+    # columns of differing quality:
+    #   flagged_a = rows 0,1 per participant (8 rows total) -- captures all 4 of P0/P1's errors,
+    #       error_fraction_captured_a = 4/5 = 0.8 (same as the hand calculation above).
+    #   flagged_b = row 2 per participant only (4 rows total) -- captures only P2's single error,
+    #       error_fraction_captured_b = 1/5 = 0.2.
+    # Hand-computable difference: 0.8 - 0.2 = 0.6.
+    rows = []
+    for participant in range(4):
+        for i in range(5):
+            flagged_a = i < 2
+            flagged_b = i == 2
+            correct = not (flagged_a and participant in (0, 1)) and not (i == 2 and participant == 2)
+            rows.append({
+                "participant_id": f"P{participant}",
+                "flagged_a": flagged_a,
+                "flagged_b": flagged_b,
+                "correct": correct,
+            })
+    return pd.DataFrame(rows)
+
+
+def test_paired_metric_difference_matches_hand_calculation():
+    point, lower, upper = participant_cluster_bootstrap_paired_metric_difference(
+        _paired_fixture(), participant_column="participant_id",
+        flagged_column_a="flagged_a", flagged_column_b="flagged_b",
+        correct_column="correct", metric="error_fraction_captured", n_bootstrap=200,
+    )
+    assert abs(point - 0.6) < 1e-9
+    assert lower <= point <= upper
+
+
+def test_paired_metric_difference_rejects_an_unknown_metric():
+    with pytest.raises(ValueError):
+        participant_cluster_bootstrap_paired_metric_difference(
+            _paired_fixture(), participant_column="participant_id",
+            flagged_column_a="flagged_a", flagged_column_b="flagged_b",
+            correct_column="correct", metric="not_a_real_metric", n_bootstrap=50,
+        )
+
+
+def test_paired_difference_of_a_signal_against_itself_is_degenerate():
+    # Under a genuinely PAIRED design (the same bootstrap resample of participants applied to
+    # both signals within each iteration), a signal compared against itself cancels exactly in
+    # every single iteration, so the point estimate and both CI bounds are all identically zero.
+    # An unpaired design (two independent resamples, one per signal) would instead return a wide,
+    # non-degenerate interval from each arm's own marginal variance, even when comparing a signal
+    # to itself -- this is the sharpest available check that the resampling is genuinely paired.
+    for metric in ("error_fraction_captured", "enrichment", "retained_accuracy"):
+        point, lower, upper = participant_cluster_bootstrap_paired_metric_difference(
+            _paired_fixture(), participant_column="participant_id",
+            flagged_column_a="flagged_a", flagged_column_b="flagged_a",
+            correct_column="correct", metric=metric, n_bootstrap=200,
+        )
+        assert (point, lower, upper) == (0.0, 0.0, 0.0)
+
+
+def test_paired_metric_difference_enrichment_matches_hand_calculation():
+    # Same fixture as the error_fraction_captured test above. enrichment = error_fraction_captured
+    # / (fraction of rows flagged). flagged_a covers 8/20 rows (0.4 flagged fraction), so
+    # enrichment_a = 0.8 / 0.4 = 2.0. flagged_b covers 4/20 rows (0.2 flagged fraction), so
+    # enrichment_b = 0.2 / 0.2 = 1.0. Hand-computable difference: 2.0 - 1.0 = 1.0.
+    point, lower, upper = participant_cluster_bootstrap_paired_metric_difference(
+        _paired_fixture(), participant_column="participant_id",
+        flagged_column_a="flagged_a", flagged_column_b="flagged_b",
+        correct_column="correct", metric="enrichment", n_bootstrap=200,
+    )
+    assert abs(point - 1.0) < 1e-9
+    assert lower <= point <= upper

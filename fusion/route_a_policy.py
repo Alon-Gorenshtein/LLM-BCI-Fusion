@@ -1,10 +1,10 @@
-"""Route A's combining rule and dev-side policy selection (design spec section 15.2-15.3):
+"""Route A's combining rule and dev-side policy selection:
 
     beta_hat_i = best_fixed_beta                          if P_hat(actionable_i) < tau
                = argmax_{beta in BETA_GRID} Q_hat_i(beta)  otherwise
 
 best_fixed_beta is Route A's OWN dev-wide best fixed beta, recomputed on Route A's dev set
-(StudyF + StudyL + StudyN), never reused from the original Version 2 dev computation (Studies
+(StudyF + StudyL + StudyN), never reused from the joint gate's dev computation (Studies
 B, F, L) since Route A's dev composition differs.
 """
 from __future__ import annotations

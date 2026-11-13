@@ -1,7 +1,6 @@
 # scripts/run_candidate_arbitration.py
-"""Real, one-shot-per-prior run of the nested leave-one-study-out candidate-arbitration analysis
-(design spec section 17). Not a holdout in the single-fresh-study sense -- this is the honestly
-disclosed exploratory cross-study evaluation section 17.3 specifies. There is no reason to call this
+"""Real, one-shot-per-prior run of the nested leave-one-study-out candidate-arbitration analysis. Not a holdout in the single-fresh-study sense -- this is the openly
+disclosed exploratory cross-study evaluation. There is no reason to call this
 "one-shot" the way Study N/StudyB's evaluations were: rerunning it would not contaminate a reserved
 holdout (there is none here), but DOES still cost real compute (four outer folds x inner CV per
 prior), so run it deliberately rather than repeatedly.
@@ -26,7 +25,8 @@ _KEY = list(KEY_COLUMNS)
 
 
 def main() -> None:
-    for prior_model in PRIORS:
+    priors = sys.argv[1].split(",") if len(sys.argv) > 1 else PRIORS
+    for prior_model in priors:
         print(f"=== {prior_model} ===")
         attribution = load_attribution(prior_model)
         # summarize_nested_loso needs target_code on `attribution`, but the real attribution.parquet

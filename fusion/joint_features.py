@@ -1,4 +1,4 @@
-"""Joint neural+language-model features for the Version 2 arbitration gate (design spec S13.3).
+"""Joint neural+language-model features for the joint arbitration gate.
 
 Extends fusion.features (neural-posterior-only) with features from the language-model posterior
 and the interaction between the two sources. Like fusion.features, these must never use the true

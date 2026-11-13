@@ -1,0 +1,200 @@
+{
+  "floors": {
+    "R1": 1e-12,
+    "August": 1e-12
+  },
+  "rows": [
+    {
+      "prior": "EleutherAI/pythia-12b",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.023717758671805516,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.0649273643640676,
+      "share_same_fused_argmax_between_copies": 0.8295286095463978
+    },
+    {
+      "prior": "Qwen/Qwen2.5-1.5B",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.02520011858879336,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.0658167803142603,
+      "share_same_fused_argmax_between_copies": 0.8354580492143493
+    },
+    {
+      "prior": "Qwen/Qwen2.5-14B",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.019863622887637118,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.0610732285798992,
+      "share_same_fused_argmax_between_copies": 0.8268603616958198
+    },
+    {
+      "prior": "Qwen/Qwen2.5-32B",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.021049510821227396,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.06522383634746516,
+      "share_same_fused_argmax_between_copies": 0.8283427216128076
+    },
+    {
+      "prior": "Qwen/Qwen2.5-3B",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.006818855618144086,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.05544026089534539,
+      "share_same_fused_argmax_between_copies": 0.8126297064927365
+    },
+    {
+      "prior": "Qwen/Qwen3.5-27B",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.019863622887637118,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.0658167803142603,
+      "share_same_fused_argmax_between_copies": 0.8609546397865402
+    },
+    {
+      "prior": "Qwen/Qwen3.6-35B-A3B",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.02490364660539579,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.046546101393418325,
+      "share_same_fused_argmax_between_copies": 0.8372368811147347
+    },
+    {
+      "prior": "allenai/OLMo-2-1124-7B-Instruct",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.014230655203083309,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.05721909279573081,
+      "share_same_fused_argmax_between_copies": 0.8179662021938927
+    },
+    {
+      "prior": "deepseek-ai/DeepSeek-V2-Lite",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.02431070263860065,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.0658167803142603,
+      "share_same_fused_argmax_between_copies": 0.8387192410317225
+    },
+    {
+      "prior": "google/gemma-2-27b",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.020456566854432257,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.05899792469611622,
+      "share_same_fused_argmax_between_copies": 0.8615475837533353
+    },
+    {
+      "prior": "google/gemma-2-2b-it",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": -0.0023717758671805513,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.03676252594129855,
+      "share_same_fused_argmax_between_copies": 0.8049214349243996
+    },
+    {
+      "prior": "google/gemma-2-9b",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.01630595908686629,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.05366142899495998,
+      "share_same_fused_argmax_between_copies": 0.8075896827749778
+    },
+    {
+      "prior": "google/gemma-4-12b-it",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.0005929439667951378,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.043581381559442633,
+      "share_same_fused_argmax_between_copies": 0.8007708271568337
+    },
+    {
+      "prior": "google/recurrentgemma-2b",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.024014230655203084,
+      "August_agreement": null,
+      "August_net_gain_beta1": null,
+      "share_same_fused_argmax_between_copies": null
+    },
+    {
+      "prior": "gpt2",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.019270678920841982,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.06729914023124815,
+      "share_same_fused_argmax_between_copies": 0.8434627927660836
+    },
+    {
+      "prior": "gpt2-large",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.021049510821227396,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.06640972428105545,
+      "share_same_fused_argmax_between_copies": 0.8387192410317225
+    },
+    {
+      "prior": "meta-llama/Llama-3.1-8B-Instruct",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.019270678920841982,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.056626148828935664,
+      "share_same_fused_argmax_between_copies": 0.8176697302104952
+    },
+    {
+      "prior": "mistralai/Mistral-7B-v0.3",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.02520011858879336,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.05870145271271865,
+      "share_same_fused_argmax_between_copies": 0.8375333530981323
+    },
+    {
+      "prior": "mistralai/Mixtral-8x7B-v0.1",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.02549659057219093,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.062259116513489476,
+      "share_same_fused_argmax_between_copies": 0.8402016009487103
+    },
+    {
+      "prior": "ngram5",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.08627334716869256,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.08627334716869256,
+      "share_same_fused_argmax_between_copies": 1.0
+    },
+    {
+      "prior": "ngram5_kn",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.07886154758375334,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.07886154758375334,
+      "share_same_fused_argmax_between_copies": 1.0
+    },
+    {
+      "prior": "ngram5_wiki_kn",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.07500741179958494,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.07500741179958494,
+      "share_same_fused_argmax_between_copies": 1.0
+    },
+    {
+      "prior": "openai/gpt-oss-20b",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.012451823302697895,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.06640972428105545,
+      "share_same_fused_argmax_between_copies": 0.8461310406166618
+    },
+    {
+      "prior": "state-spaces/mamba-2.8b-hf",
+      "R1_agreement": 1.0,
+      "R1_net_gain_beta1": 0.02223539875481767,
+      "August_agreement": 1.0,
+      "August_net_gain_beta1": 0.0696709160984287,
+      "share_same_fused_argmax_between_copies": 0.8396086569819152
+    }
+  ]
+}

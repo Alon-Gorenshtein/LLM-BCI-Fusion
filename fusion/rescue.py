@@ -1,4 +1,4 @@
-"""Rescue experiment (post-final-review): does adaptive fusion beat the BEST achievable fixed
+"""Fair comparison against the best achievable fixed weight: does adaptive fusion beat the BEST achievable fixed
 beta -- not just the field-default beta=1 -- once both the fixed-beta choice and the adaptive
 link's own anchor are selected out-of-fold instead of assumed a priori?
 
@@ -99,11 +99,33 @@ def select_best_fixed_beta_arm_cv(
     return pd.concat(parts, ignore_index=True)
 
 
+def anchor_training_g_hat(train_frame: pd.DataFrame, inner_folds: int | None = None) -> np.ndarray:
+    """g_hat on the training participants' own rows, used only to choose the anchor.
+    None keeps the original in-sample predictions; an integer gives out-of-fold predictions from
+    participant-grouped inner folds, so no row is scored by a model that saw it."""
+    from sklearn.linear_model import LogisticRegression
+    from fusion.features import reliability_features_frame
+
+    features = reliability_features_frame(train_frame["p_neural"])
+    labels = train_frame["neural_correct"].astype(int).to_numpy()
+    if inner_folds is None:
+        model = LogisticRegression(random_state=RANDOM_STATE, max_iter=1000).fit(features, labels)
+        return model.predict_proba(features)[:, 1]
+    groups = train_frame["participant_id"].to_numpy()
+    g_hat = np.full(len(train_frame), np.nan)
+    for tr, te in GroupKFold(n_splits=inner_folds).split(features, labels, groups):
+        model = LogisticRegression(random_state=RANDOM_STATE, max_iter=1000)
+        model.fit(features.iloc[tr], labels[tr])
+        g_hat[te] = model.predict_proba(features.iloc[te])[:, 1]
+    return g_hat
+
+
 def tune_adaptive_anchor_cv(
     working_frame: pd.DataFrame,
     n_folds: int = 5,
     outcome: str = "prior_capture",
     anchor_grid: tuple = ANCHOR_GRID,
+    inner_folds: int | None = None,
 ) -> pd.DataFrame:
     """Like the adaptive arm, but BOTH the reliability estimator and the (BETA_MIN, BETA_MAX)
     anchor are fit out-of-fold per participant-grouped fold. For fold k: the reliability estimator
@@ -117,6 +139,12 @@ def tune_adaptive_anchor_cv(
     not "true nested cross-validation". No test participant's own data ever informs its own fold's
     estimator fit or its own fold's anchor choice -- the leakage this function closes is strictly
     the cross-fold (participant-level) kind, not the in-sample-vs-inner-CV kind.
+
+    `inner_folds` controls how the training rows are scored for anchor selection. The default
+    (None) keeps the in-sample selection described above. `inner_folds=k` scores the training
+    rows with participant-grouped k-fold out-of-fold predictions (the nested version), so no
+    training row is scored by a model that saw it; the test rows are still scored by the
+    fold-local model fit on all training participants.
 
     `working_frame` must have `p_neural`, `p_lm`, `target_code`, `neural_correct`,
     `participant_id` (i.e. the output of `fusion.data.build_working_frame`, NOT a
@@ -135,9 +163,7 @@ def tune_adaptive_anchor_cv(
             reliability_features_frame(train_frame["p_neural"]),
             train_frame["neural_correct"].astype(int),
         )
-        train_frame["g_hat"] = model.predict_proba(
-            reliability_features_frame(train_frame["p_neural"])
-        )[:, 1]
+        train_frame["g_hat"] = anchor_training_g_hat(train_frame, inner_folds)
         test_frame["g_hat"] = model.predict_proba(
             reliability_features_frame(test_frame["p_neural"])
         )[:, 1]

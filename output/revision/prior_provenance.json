@@ -1,0 +1,146 @@
+[
+ [
+  "ngram5",
+  0,
+  "n-gram, built locally",
+  "6ed755f360e9716b"
+ ],
+ [
+  "ngram5_kn",
+  0,
+  "n-gram, built locally",
+  "18bf2a75ad8377a7"
+ ],
+ [
+  "ngram5_wiki_kn",
+  0,
+  "n-gram, built locally",
+  "852cb2c616a52783"
+ ],
+ [
+  "gpt2",
+  124000000,
+  "scored locally",
+  "275628f06010059e"
+ ],
+ [
+  "gpt2-large",
+  774000000,
+  "scored locally",
+  "fd618dea7d713db2"
+ ],
+ [
+  "Qwen/Qwen2.5-1.5B",
+  1540000000,
+  "scored locally",
+  "bf7aa9a66c0e4ee6"
+ ],
+ [
+  "Qwen/Qwen2.5-3B",
+  3090000000,
+  "scored locally",
+  "67b22f148ea598c0"
+ ],
+ [
+  "Qwen/Qwen2.5-14B",
+  14700000000,
+  "scored on the GPU cluster",
+  "20b6c73441cdad58"
+ ],
+ [
+  "Qwen/Qwen2.5-32B",
+  32500000000,
+  "scored on the GPU cluster",
+  "900c07c97e7694a9"
+ ],
+ [
+  "Qwen/Qwen3.5-27B",
+  27000000000,
+  "scored on the GPU cluster",
+  "f66ef8385b6c139a"
+ ],
+ [
+  "meta-llama/Llama-3.1-8B-Instruct",
+  8000000000,
+  "scored on the GPU cluster",
+  "53d55225fff3065c"
+ ],
+ [
+  "google/gemma-2-9b",
+  9000000000,
+  "scored on the GPU cluster",
+  "861da7130612333a"
+ ],
+ [
+  "mistralai/Mistral-7B-v0.3",
+  7000000000,
+  "scored on the GPU cluster",
+  "44405aac97a8eb63"
+ ],
+ [
+  "deepseek-ai/DeepSeek-V2-Lite",
+  15700000000,
+  "scored on the GPU cluster",
+  "53dc9e978b7f77a2"
+ ],
+ [
+  "google/gemma-2-27b",
+  27000000000,
+  "scored on the GPU cluster",
+  "794446fd996ea6da"
+ ],
+ [
+  "mistralai/Mixtral-8x7B-v0.1",
+  46700000000,
+  "scored on the GPU cluster",
+  "81d42a7a580d6fa3"
+ ],
+ [
+  "google/gemma-2-2b-it",
+  2000000000,
+  "scored on the GPU cluster",
+  "70c6d69304aaea93"
+ ],
+ [
+  "allenai/OLMo-2-1124-7B-Instruct",
+  7000000000,
+  "scored on the GPU cluster",
+  "9340697eecc2414b"
+ ],
+ [
+  "google/gemma-4-12b-it",
+  12000000000,
+  "scored on the GPU cluster",
+  "e79d6f615d6b42fc"
+ ],
+ [
+  "Qwen/Qwen3.6-35B-A3B",
+  35000000000,
+  "scored on the GPU cluster",
+  "7c3f49bca24639d7"
+ ],
+ [
+  "openai/gpt-oss-20b",
+  20900000000,
+  "scored on the GPU cluster",
+  "3b21fdccf767a9e8"
+ ],
+ [
+  "EleutherAI/pythia-12b",
+  12000000000,
+  "scored on the GPU cluster",
+  "6d04c75d69b11aa6"
+ ],
+ [
+  "state-spaces/mamba-2.8b-hf",
+  2800000000,
+  "scored on the GPU cluster",
+  "7f183714154dbba1"
+ ],
+ [
+  "google/recurrentgemma-2b",
+  2700000000,
+  "scored on the GPU cluster",
+  "7cb791e8ec511f7c"
+ ]
+]

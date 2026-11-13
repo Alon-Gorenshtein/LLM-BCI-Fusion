@@ -1,7 +1,6 @@
-"""Route A diagnostics (design spec section 15.3 item 5): characterize Stage 1 and Stage 2's
+"""Route A diagnostics: characterize Stage 1 and Stage 2's
 dev-side discrimination on their own terms, and cross-tabulate Route A's Stage 1 against the OLD
-gate's already-computed helped/hurt/no-effect deviation breakdown (fusion.arbitration_diagnostics,
-Round 3) -- the central engineering question this controller exists to answer: does Route A
+gate's already-computed helped/hurt/no-effect deviation breakdown (fusion.arbitration_diagnostics) -- the central engineering question this controller exists to answer: does Route A
 correctly suppress the OLD gate's action-inert deviations while preserving its rare consequential
 ones?
 """

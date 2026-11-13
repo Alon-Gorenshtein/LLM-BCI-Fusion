@@ -1,0 +1,390 @@
+=== gpt2 ===
+
+--- Comparison table: error_fraction_captured / enrichment / accuracy_retained ---
+
+Signal: candidate_ranker_p_hat (higher_is_more_confident=True)
+ coverage  error_fraction_captured  enrichment  accuracy_retained
+     0.95                 0.132054    2.635614           0.759988
+     0.90                 0.261851    2.613087           0.784514
+
+Signal: fixed_fused_top1_prob (higher_is_more_confident=True)
+ coverage  error_fraction_captured  enrichment  accuracy_retained
+     0.95                 0.153499    3.063619           0.765918
+     0.90                 0.278781    2.782037           0.789456
+
+Signal: fixed_fused_margin (higher_is_more_confident=True)
+ coverage  error_fraction_captured  enrichment  accuracy_retained
+     0.95                 0.146727    2.928460           0.764045
+     0.90                 0.278781    2.782037           0.789456
+
+Signal: fixed_fused_entropy_bits (higher_is_more_confident=False)
+ coverage  error_fraction_captured  enrichment  accuracy_retained
+     0.95                 0.150113    2.996040           0.764981
+     0.90                 0.287810    2.872143           0.792092
+
+Signal: neural_top1_prob (higher_is_more_confident=True)
+ coverage  error_fraction_captured  enrichment  accuracy_retained
+     0.95                 0.125282    2.500454           0.758115
+     0.90                 0.249436    2.489191           0.780890
+
+Signal: neural_margin (higher_is_more_confident=True)
+ coverage  error_fraction_captured  enrichment  accuracy_retained
+     0.95                 0.126411    2.522981           0.758427
+     0.90                 0.239278    2.387821           0.777924
+
+Signal: reliability_g_hat (higher_is_more_confident=True)
+ coverage  error_fraction_captured  enrichment  accuracy_retained
+     0.95                 0.136569    2.725720           0.761236
+     0.90                 0.261851    2.613087           0.784514
+
+Signal: neural_lm_js_divergence (higher_is_more_confident=False)
+ coverage  error_fraction_captured  enrichment  accuracy_retained
+     0.95                 0.019187    0.382952           0.728777
+     0.90                 0.068849    0.687062           0.728171
+
+--- Per-study sensitivity (candidate_ranker_p_hat only, 5%/10% flagged) ---
+ coverage  n_retained  n_flagged  accuracy_retained outer_held_out_study  error_fraction_captured  enrichment
+     0.95         804         42           0.888060               StudyB                      NaN         NaN
+     0.90         761         85           0.914586               StudyB                      NaN         NaN
+     0.95        1014         53           0.676529               StudyF                      NaN         NaN
+     0.90         960        107           0.696875               StudyF                      NaN         NaN
+     0.95         940         50           0.817021               StudyL                      NaN         NaN
+     0.90         891         99           0.846240               StudyL                      NaN         NaN
+     0.95         446         24           0.598655               StudyN                      NaN         NaN
+     0.90         423         47           0.619385               StudyN                      NaN         NaN
+
+--- Participant-cluster bootstrap 95% CIs (all 8 signals, 5%/10% flagged) ---
+
+Signal: candidate_ranker_p_hat
+  coverage=0.95:
+    error_fraction_captured: 0.1321 (95% CI 0.1048 to 0.1650)
+    enrichment: 2.6356 (95% CI 2.0692 to 3.5657)
+    retained_accuracy: 0.7600 (95% CI 0.6828 to 0.8309)
+  coverage=0.9:
+    error_fraction_captured: 0.2619 (95% CI 0.2172 to 0.3171)
+    enrichment: 2.6131 (95% CI 2.0951 to 3.4821)
+    retained_accuracy: 0.7845 (95% CI 0.7101 to 0.8524)
+
+Signal: fixed_fused_top1_prob
+  coverage=0.95:
+    error_fraction_captured: 0.1535 (95% CI 0.1162 to 0.1954)
+    enrichment: 3.0636 (95% CI 2.4136 to 4.1493)
+    retained_accuracy: 0.7659 (95% CI 0.6910 to 0.8353)
+  coverage=0.9:
+    error_fraction_captured: 0.2788 (95% CI 0.2335 to 0.3322)
+    enrichment: 2.7820 (95% CI 2.2372 to 3.6609)
+    retained_accuracy: 0.7895 (95% CI 0.7171 to 0.8559)
+
+Signal: fixed_fused_margin
+  coverage=0.95:
+    error_fraction_captured: 0.1467 (95% CI 0.1173 to 0.1791)
+    enrichment: 2.9285 (95% CI 2.3108 to 3.9592)
+    retained_accuracy: 0.7640 (95% CI 0.6887 to 0.8344)
+  coverage=0.9:
+    error_fraction_captured: 0.2788 (95% CI 0.2372 to 0.3285)
+    enrichment: 2.7820 (95% CI 2.2503 to 3.6526)
+    retained_accuracy: 0.7895 (95% CI 0.7177 to 0.8557)
+
+Signal: fixed_fused_entropy_bits
+  coverage=0.95:
+    error_fraction_captured: 0.1501 (95% CI 0.1064 to 0.2010)
+    enrichment: 2.9960 (95% CI 2.3616 to 4.0778)
+    retained_accuracy: 0.7650 (95% CI 0.6901 to 0.8338)
+  coverage=0.9:
+    error_fraction_captured: 0.2878 (95% CI 0.2307 to 0.3575)
+    enrichment: 2.8721 (95% CI 2.3099 to 3.8082)
+    retained_accuracy: 0.7921 (95% CI 0.7230 to 0.8574)
+
+Signal: neural_top1_prob
+  coverage=0.95:
+    error_fraction_captured: 0.1253 (95% CI 0.0871 to 0.1710)
+    enrichment: 2.5005 (95% CI 1.9685 to 3.3793)
+    retained_accuracy: 0.7581 (95% CI 0.6818 to 0.8307)
+  coverage=0.9:
+    error_fraction_captured: 0.2494 (95% CI 0.1988 to 0.3131)
+    enrichment: 2.4892 (95% CI 2.0220 to 3.2625)
+    retained_accuracy: 0.7809 (95% CI 0.7075 to 0.8486)
+
+Signal: neural_margin
+  coverage=0.95:
+    error_fraction_captured: 0.1264 (95% CI 0.0945 to 0.1649)
+    enrichment: 2.5230 (95% CI 2.0283 to 3.3444)
+    retained_accuracy: 0.7584 (95% CI 0.6811 to 0.8316)
+  coverage=0.9:
+    error_fraction_captured: 0.2393 (95% CI 0.1876 to 0.3018)
+    enrichment: 2.3878 (95% CI 1.9401 to 3.0979)
+    retained_accuracy: 0.7779 (95% CI 0.7042 to 0.8469)
+
+Signal: reliability_g_hat
+  coverage=0.95:
+    error_fraction_captured: 0.1366 (95% CI 0.0873 to 0.1985)
+    enrichment: 2.7257 (95% CI 2.1601 to 3.6530)
+    retained_accuracy: 0.7612 (95% CI 0.6872 to 0.8307)
+  coverage=0.9:
+    error_fraction_captured: 0.2619 (95% CI 0.1951 to 0.3481)
+    enrichment: 2.6131 (95% CI 2.0961 to 3.4498)
+    retained_accuracy: 0.7845 (95% CI 0.7151 to 0.8499)
+
+Signal: neural_lm_js_divergence
+  coverage=0.95:
+    error_fraction_captured: 0.0192 (95% CI 0.0106 to 0.0282)
+    enrichment: 0.3830 (95% CI 0.2137 to 0.5613)
+    retained_accuracy: 0.7288 (95% CI 0.6505 to 0.8037)
+  coverage=0.9:
+    error_fraction_captured: 0.0688 (95% CI 0.0507 to 0.0890)
+    enrichment: 0.6871 (95% CI 0.5182 to 0.8584)
+    retained_accuracy: 0.7282 (95% CI 0.6504 to 0.8029)
+
+--- Paired-difference bootstrap: candidate_ranker_p_hat vs. each baseline ---
+
+candidate_ranker_p_hat - fixed_fused_top1_prob:
+  candidate_ranker_p_hat - fixed_fused_top1_prob @ coverage=0.95, error_fraction_captured: -0.0214 (-0.0425 to 0.0000) [ns]
+  candidate_ranker_p_hat - fixed_fused_top1_prob @ coverage=0.9, error_fraction_captured: -0.0169 (-0.0393 to 0.0075) [ns]
+  candidate_ranker_p_hat - fixed_fused_top1_prob @ coverage=0.95, enrichment: -0.4280 (-0.7887 to -0.1713) [sig]
+  candidate_ranker_p_hat - fixed_fused_top1_prob @ coverage=0.9, enrichment: -0.1689 (-0.3570 to -0.0057) [sig]
+
+candidate_ranker_p_hat - fixed_fused_margin:
+  candidate_ranker_p_hat - fixed_fused_margin @ coverage=0.95, error_fraction_captured: -0.0147 (-0.0375 to 0.0077) [ns]
+  candidate_ranker_p_hat - fixed_fused_margin @ coverage=0.9, error_fraction_captured: -0.0169 (-0.0435 to 0.0134) [ns]
+  candidate_ranker_p_hat - fixed_fused_margin @ coverage=0.95, enrichment: -0.2928 (-0.6655 to 0.0155) [ns]
+  candidate_ranker_p_hat - fixed_fused_margin @ coverage=0.9, enrichment: -0.1689 (-0.3610 to 0.0099) [ns]
+
+candidate_ranker_p_hat - fixed_fused_entropy_bits:
+  candidate_ranker_p_hat - fixed_fused_entropy_bits @ coverage=0.95, error_fraction_captured: -0.0181 (-0.0441 to 0.0093) [ns]
+  candidate_ranker_p_hat - fixed_fused_entropy_bits @ coverage=0.9, error_fraction_captured: -0.0260 (-0.0539 to 0.0048) [ns]
+  candidate_ranker_p_hat - fixed_fused_entropy_bits @ coverage=0.95, enrichment: -0.3604 (-0.6570 to -0.1570) [sig]
+  candidate_ranker_p_hat - fixed_fused_entropy_bits @ coverage=0.9, enrichment: -0.2591 (-0.4401 to -0.1073) [sig]
+
+candidate_ranker_p_hat - neural_top1_prob:
+  candidate_ranker_p_hat - neural_top1_prob @ coverage=0.95, error_fraction_captured: 0.0068 (-0.0148 to 0.0269) [ns]
+  candidate_ranker_p_hat - neural_top1_prob @ coverage=0.9, error_fraction_captured: 0.0124 (-0.0181 to 0.0441) [ns]
+  candidate_ranker_p_hat - neural_top1_prob @ coverage=0.95, enrichment: 0.1352 (-0.0802 to 0.4040) [ns]
+  candidate_ranker_p_hat - neural_top1_prob @ coverage=0.9, enrichment: 0.1239 (-0.0112 to 0.3284) [ns]
+
+candidate_ranker_p_hat - neural_margin:
+  candidate_ranker_p_hat - neural_margin @ coverage=0.95, error_fraction_captured: 0.0056 (-0.0197 to 0.0268) [ns]
+  candidate_ranker_p_hat - neural_margin @ coverage=0.9, error_fraction_captured: 0.0226 (-0.0030 to 0.0509) [ns]
+  candidate_ranker_p_hat - neural_margin @ coverage=0.95, enrichment: 0.1126 (-0.1378 to 0.4434) [ns]
+  candidate_ranker_p_hat - neural_margin @ coverage=0.9, enrichment: 0.2253 (0.0827 to 0.4890) [sig]
+
+candidate_ranker_p_hat - reliability_g_hat:
+  candidate_ranker_p_hat - reliability_g_hat @ coverage=0.95, error_fraction_captured: -0.0045 (-0.0439 to 0.0304) [ns]
+  candidate_ranker_p_hat - reliability_g_hat @ coverage=0.9, error_fraction_captured: 0.0000 (-0.0508 to 0.0483) [ns]
+  candidate_ranker_p_hat - reliability_g_hat @ coverage=0.95, enrichment: -0.0901 (-0.4196 to 0.2797) [ns]
+  candidate_ranker_p_hat - reliability_g_hat @ coverage=0.9, enrichment: 0.0000 (-0.1275 to 0.1643) [ns]
+
+candidate_ranker_p_hat - neural_lm_js_divergence:
+  candidate_ranker_p_hat - neural_lm_js_divergence @ coverage=0.95, error_fraction_captured: 0.1129 (0.0811 to 0.1509) [sig]
+  candidate_ranker_p_hat - neural_lm_js_divergence @ coverage=0.9, error_fraction_captured: 0.1930 (0.1403 to 0.2564) [sig]
+  candidate_ranker_p_hat - neural_lm_js_divergence @ coverage=0.95, enrichment: 2.2527 (1.5923 to 3.2903) [sig]
+  candidate_ranker_p_hat - neural_lm_js_divergence @ coverage=0.9, enrichment: 1.9260 (1.3237 to 2.8811) [sig]
+
+--- Per-study enrichment breakdown (candidate_ranker_p_hat only) ---
+
+coverage=0.95:
+  StudyB: error_fraction_captured=0.2105, enrichment=4.2406 (n=846, n_flagged=42, n_errors=114)
+  StudyF: error_fraction_captured=0.0964, enrichment=1.9411 (n=1067, n_flagged=53, n_errors=363)
+  StudyL: error_fraction_captured=0.1848, enrichment=3.6597 (n=990, n_flagged=50, n_errors=211)
+  StudyN: error_fraction_captured=0.0960, enrichment=1.8792 (n=470, n_flagged=24, n_errors=198)
+
+coverage=0.9:
+  StudyB: error_fraction_captured=0.4298, enrichment=4.2780 (n=846, n_flagged=85, n_errors=114)
+  StudyF: error_fraction_captured=0.1983, enrichment=1.9779 (n=1067, n_flagged=107, n_errors=363)
+  StudyL: error_fraction_captured=0.3507, enrichment=3.5071 (n=990, n_flagged=99, n_errors=211)
+  StudyN: error_fraction_captured=0.1869, enrichment=1.8687 (n=470, n_flagged=47, n_errors=198)
+
+=== ngram5_kn ===
+
+--- Comparison table: error_fraction_captured / enrichment / accuracy_retained ---
+
+Signal: candidate_ranker_p_hat (higher_is_more_confident=True)
+ coverage  error_fraction_captured  enrichment  accuracy_retained
+     0.95                 0.146667    2.927258           0.820225
+     0.90                 0.300741    3.001179           0.844481
+
+Signal: fixed_fused_top1_prob (higher_is_more_confident=True)
+ coverage  error_fraction_captured  enrichment  accuracy_retained
+     0.95                 0.191111    3.814306           0.829588
+     0.90                 0.339259    3.385567           0.853048
+
+Signal: fixed_fused_margin (higher_is_more_confident=True)
+ coverage  error_fraction_captured  enrichment  accuracy_retained
+     0.95                 0.180741    3.607329           0.827403
+     0.90                 0.334815    3.341214           0.852059
+
+Signal: fixed_fused_entropy_bits (higher_is_more_confident=False)
+ coverage  error_fraction_captured  enrichment  accuracy_retained
+     0.95                 0.174815    3.489055           0.826155
+     0.90                 0.336296    3.355998           0.852389
+
+Signal: neural_top1_prob (higher_is_more_confident=True)
+ coverage  error_fraction_captured  enrichment  accuracy_retained
+     0.95                 0.145185    2.897690           0.819913
+     0.90                 0.263704    2.631576           0.836244
+
+Signal: neural_margin (higher_is_more_confident=True)
+ coverage  error_fraction_captured  enrichment  accuracy_retained
+     0.95                 0.143704    2.868122           0.819600
+     0.90                 0.257778    2.572439           0.834926
+
+Signal: reliability_g_hat (higher_is_more_confident=True)
+ coverage  error_fraction_captured  enrichment  accuracy_retained
+     0.95                 0.148148    2.956827           0.820537
+     0.90                 0.275556    2.749849           0.838880
+
+Signal: neural_lm_js_divergence (higher_is_more_confident=False)
+ coverage  error_fraction_captured  enrichment  accuracy_retained
+     0.95                 0.108148    2.158483           0.812110
+     0.90                 0.214815    2.143699           0.825371
+
+--- Per-study sensitivity (candidate_ranker_p_hat only, 5%/10% flagged) ---
+ coverage  n_retained  n_flagged  accuracy_retained outer_held_out_study  error_fraction_captured  enrichment
+     0.95         804         42           0.896766               StudyB                      NaN         NaN
+     0.90         761         85           0.926413               StudyB                      NaN         NaN
+     0.95        1014         53           0.789941               StudyF                      NaN         NaN
+     0.90         960        107           0.808333               StudyF                      NaN         NaN
+     0.95         940         50           0.830851               StudyL                      NaN         NaN
+     0.90         891         99           0.858586               StudyL                      NaN         NaN
+     0.95         446         24           0.728700               StudyN                      NaN         NaN
+     0.90         423         47           0.749409               StudyN                      NaN         NaN
+
+--- Participant-cluster bootstrap 95% CIs (all 8 signals, 5%/10% flagged) ---
+
+Signal: candidate_ranker_p_hat
+  coverage=0.95:
+    error_fraction_captured: 0.1467 (95% CI 0.1141 to 0.1858)
+    enrichment: 2.9273 (95% CI 2.2406 to 4.0934)
+    retained_accuracy: 0.8202 (95% CI 0.7643 to 0.8743)
+  coverage=0.9:
+    error_fraction_captured: 0.3007 (95% CI 0.2442 to 0.3615)
+    enrichment: 3.0012 (95% CI 2.4187 to 3.9432)
+    retained_accuracy: 0.8445 (95% CI 0.7962 to 0.8918)
+
+Signal: fixed_fused_top1_prob
+  coverage=0.95:
+    error_fraction_captured: 0.1911 (95% CI 0.1449 to 0.2468)
+    enrichment: 3.8143 (95% CI 3.0059 to 5.2141)
+    retained_accuracy: 0.8296 (95% CI 0.7782 to 0.8803)
+  coverage=0.9:
+    error_fraction_captured: 0.3393 (95% CI 0.2778 to 0.4095)
+    enrichment: 3.3856 (95% CI 2.7180 to 4.5562)
+    retained_accuracy: 0.8530 (95% CI 0.8055 to 0.8990)
+
+Signal: fixed_fused_margin
+  coverage=0.95:
+    error_fraction_captured: 0.1807 (95% CI 0.1321 to 0.2407)
+    enrichment: 3.6073 (95% CI 2.8575 to 4.8467)
+    retained_accuracy: 0.8274 (95% CI 0.7739 to 0.8797)
+  coverage=0.9:
+    error_fraction_captured: 0.3348 (95% CI 0.2793 to 0.3988)
+    enrichment: 3.3412 (95% CI 2.6624 to 4.4871)
+    retained_accuracy: 0.8521 (95% CI 0.8027 to 0.9002)
+
+Signal: fixed_fused_entropy_bits
+  coverage=0.95:
+    error_fraction_captured: 0.1748 (95% CI 0.1281 to 0.2281)
+    enrichment: 3.4891 (95% CI 2.7541 to 4.7634)
+    retained_accuracy: 0.8262 (95% CI 0.7741 to 0.8778)
+  coverage=0.9:
+    error_fraction_captured: 0.3363 (95% CI 0.2741 to 0.4053)
+    enrichment: 3.3560 (95% CI 2.6698 to 4.5637)
+    retained_accuracy: 0.8524 (95% CI 0.8056 to 0.8983)
+
+Signal: neural_top1_prob
+  coverage=0.95:
+    error_fraction_captured: 0.1452 (95% CI 0.0994 to 0.2000)
+    enrichment: 2.8977 (95% CI 2.3031 to 3.9337)
+    retained_accuracy: 0.8199 (95% CI 0.7663 to 0.8738)
+  coverage=0.9:
+    error_fraction_captured: 0.2637 (95% CI 0.2004 to 0.3402)
+    enrichment: 2.6316 (95% CI 2.1529 to 3.4132)
+    retained_accuracy: 0.8362 (95% CI 0.7859 to 0.8863)
+
+Signal: neural_margin
+  coverage=0.95:
+    error_fraction_captured: 0.1437 (95% CI 0.1041 to 0.1905)
+    enrichment: 2.8681 (95% CI 2.3241 to 3.7773)
+    retained_accuracy: 0.8196 (95% CI 0.7649 to 0.8745)
+  coverage=0.9:
+    error_fraction_captured: 0.2578 (95% CI 0.1989 to 0.3260)
+    enrichment: 2.5724 (95% CI 2.1116 to 3.3090)
+    retained_accuracy: 0.8349 (95% CI 0.7840 to 0.8854)
+
+Signal: reliability_g_hat
+  coverage=0.95:
+    error_fraction_captured: 0.1481 (95% CI 0.0973 to 0.2108)
+    enrichment: 2.9568 (95% CI 2.3258 to 4.1246)
+    retained_accuracy: 0.8205 (95% CI 0.7682 to 0.8726)
+  coverage=0.9:
+    error_fraction_captured: 0.2756 (95% CI 0.2017 to 0.3674)
+    enrichment: 2.7498 (95% CI 2.2433 to 3.5942)
+    retained_accuracy: 0.8389 (95% CI 0.7905 to 0.8876)
+
+Signal: neural_lm_js_divergence
+  coverage=0.95:
+    error_fraction_captured: 0.1081 (95% CI 0.0806 to 0.1407)
+    enrichment: 2.1585 (95% CI 1.5350 to 3.0590)
+    retained_accuracy: 0.8121 (95% CI 0.7514 to 0.8680)
+  coverage=0.9:
+    error_fraction_captured: 0.2148 (95% CI 0.1673 to 0.2675)
+    enrichment: 2.1437 (95% CI 1.6686 to 2.8117)
+    retained_accuracy: 0.8254 (95% CI 0.7664 to 0.8781)
+
+--- Paired-difference bootstrap: candidate_ranker_p_hat vs. each baseline ---
+
+candidate_ranker_p_hat - fixed_fused_top1_prob:
+  candidate_ranker_p_hat - fixed_fused_top1_prob @ coverage=0.95, error_fraction_captured: -0.0444 (-0.0809 to -0.0079) [sig]
+  candidate_ranker_p_hat - fixed_fused_top1_prob @ coverage=0.9, error_fraction_captured: -0.0385 (-0.0855 to 0.0042) [ns]
+  candidate_ranker_p_hat - fixed_fused_top1_prob @ coverage=0.95, enrichment: -0.8870 (-1.4701 to -0.4885) [sig]
+  candidate_ranker_p_hat - fixed_fused_top1_prob @ coverage=0.9, enrichment: -0.3844 (-0.7853 to -0.1207) [sig]
+
+candidate_ranker_p_hat - fixed_fused_margin:
+  candidate_ranker_p_hat - fixed_fused_margin @ coverage=0.95, error_fraction_captured: -0.0341 (-0.0763 to 0.0069) [ns]
+  candidate_ranker_p_hat - fixed_fused_margin @ coverage=0.9, error_fraction_captured: -0.0341 (-0.0847 to 0.0111) [ns]
+  candidate_ranker_p_hat - fixed_fused_margin @ coverage=0.95, enrichment: -0.6801 (-1.1904 to -0.2432) [sig]
+  candidate_ranker_p_hat - fixed_fused_margin @ coverage=0.9, enrichment: -0.3400 (-0.7343 to -0.0758) [sig]
+
+candidate_ranker_p_hat - fixed_fused_entropy_bits:
+  candidate_ranker_p_hat - fixed_fused_entropy_bits @ coverage=0.95, error_fraction_captured: -0.0281 (-0.0672 to 0.0088) [ns]
+  candidate_ranker_p_hat - fixed_fused_entropy_bits @ coverage=0.9, error_fraction_captured: -0.0356 (-0.0838 to 0.0103) [ns]
+  candidate_ranker_p_hat - fixed_fused_entropy_bits @ coverage=0.95, enrichment: -0.5618 (-1.1777 to -0.0150) [sig]
+  candidate_ranker_p_hat - fixed_fused_entropy_bits @ coverage=0.9, enrichment: -0.3548 (-0.7489 to -0.1023) [sig]
+
+candidate_ranker_p_hat - neural_top1_prob:
+  candidate_ranker_p_hat - neural_top1_prob @ coverage=0.95, error_fraction_captured: 0.0015 (-0.0362 to 0.0364) [ns]
+  candidate_ranker_p_hat - neural_top1_prob @ coverage=0.9, error_fraction_captured: 0.0370 (-0.0042 to 0.0788) [ns]
+  candidate_ranker_p_hat - neural_top1_prob @ coverage=0.95, enrichment: 0.0296 (-0.4683 to 0.5318) [ns]
+  candidate_ranker_p_hat - neural_top1_prob @ coverage=0.9, enrichment: 0.3696 (0.1335 to 0.7384) [sig]
+
+candidate_ranker_p_hat - neural_margin:
+  candidate_ranker_p_hat - neural_margin @ coverage=0.95, error_fraction_captured: 0.0030 (-0.0347 to 0.0402) [ns]
+  candidate_ranker_p_hat - neural_margin @ coverage=0.9, error_fraction_captured: 0.0430 (0.0048 to 0.0783) [sig]
+  candidate_ranker_p_hat - neural_margin @ coverage=0.95, enrichment: 0.0591 (-0.4867 to 0.6884) [ns]
+  candidate_ranker_p_hat - neural_margin @ coverage=0.9, enrichment: 0.4287 (0.1858 to 0.8151) [sig]
+
+candidate_ranker_p_hat - reliability_g_hat:
+  candidate_ranker_p_hat - reliability_g_hat @ coverage=0.95, error_fraction_captured: -0.0015 (-0.0464 to 0.0400) [ns]
+  candidate_ranker_p_hat - reliability_g_hat @ coverage=0.9, error_fraction_captured: 0.0252 (-0.0279 to 0.0727) [ns]
+  candidate_ranker_p_hat - reliability_g_hat @ coverage=0.95, enrichment: -0.0296 (-0.6777 to 0.5252) [ns]
+  candidate_ranker_p_hat - reliability_g_hat @ coverage=0.9, enrichment: 0.2513 (-0.0099 to 0.5400) [ns]
+
+candidate_ranker_p_hat - neural_lm_js_divergence:
+  candidate_ranker_p_hat - neural_lm_js_divergence @ coverage=0.95, error_fraction_captured: 0.0385 (-0.0102 to 0.0880) [ns]
+  candidate_ranker_p_hat - neural_lm_js_divergence @ coverage=0.9, error_fraction_captured: 0.0859 (0.0000 to 0.1748) [ns]
+  candidate_ranker_p_hat - neural_lm_js_divergence @ coverage=0.95, enrichment: 0.7688 (0.0011 to 1.6347) [sig]
+  candidate_ranker_p_hat - neural_lm_js_divergence @ coverage=0.9, enrichment: 0.8575 (0.3186 to 1.5608) [sig]
+
+--- Per-study enrichment breakdown (candidate_ranker_p_hat only) ---
+
+coverage=0.95:
+  StudyB: error_fraction_captured=0.2095, enrichment=4.2204 (n=846, n_flagged=42, n_errors=105)
+  StudyF: error_fraction_captured=0.1198, enrichment=2.4125 (n=1067, n_flagged=53, n_errors=242)
+  StudyL: error_fraction_captured=0.1405, enrichment=2.7827 (n=990, n_flagged=50, n_errors=185)
+  StudyN: error_fraction_captured=0.1538, enrichment=3.0128 (n=470, n_flagged=24, n_errors=143)
+
+coverage=0.9:
+  StudyB: error_fraction_captured=0.4667, enrichment=4.6447 (n=846, n_flagged=85, n_errors=105)
+  StudyF: error_fraction_captured=0.2397, enrichment=2.3900 (n=1067, n_flagged=107, n_errors=242)
+  StudyL: error_fraction_captured=0.3189, enrichment=3.1892 (n=990, n_flagged=99, n_errors=185)
+  StudyN: error_fraction_captured=0.2587, enrichment=2.5874 (n=470, n_flagged=47, n_errors=143)
+

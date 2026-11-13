@@ -1,6 +1,5 @@
-"""Candidate-level feature table (design spec section 17.2 Step 3): one row per (selection,
-candidate) pair, combining the achievable-candidate set (Task 1), exact boundary-distance math
-(Task 2), and the already-validated joint neural+LM selection-level feature set (section 13.3),
+"""Candidate-level feature table: one row per (selection,
+candidate) pair, combining the achievable-candidate set, exact boundary-distance math, and the already-validated joint neural+LM selection-level feature set (section 13.3),
 plus per-candidate features specific to arbitration (neural/LM probability and rank of THIS
 candidate, whether it is the neural-only/LM-only/fixed winner).
 """

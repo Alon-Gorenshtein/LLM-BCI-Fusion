@@ -1,30 +1,6 @@
 # scripts/run_abstention_check.py
-"""Selective-abstention risk-coverage check (design spec section 17.6) -- the one further
-repo-only fallback licensed after Task 7's candidate-arbitration controller failed its own bar for
-both priors (task-7b-report.md: net_correct_gain negative, more harmful than helpful overrides,
-negative oracle-headroom-recovered, for both gpt2 and ngram5_kn).
-
-Fixed post-hoc by the final whole-branch review (final-review.md MF-1/MF-2/MF-3), which found the
-original design invalid on the real data:
-
-- MF-1 (tie-ordering artifact): the original confidence proxy, |p_hat_best_alternative -
-  p_hat_fixed_winner|, is exactly 0.0 for ~91-93% of real selections (every case where the ranker's
-  top pick already IS the fixed winner). With the data overwhelmingly tied at one value, which rows
-  land in the "top X%" was decided by pandas' unstable tie-break order, not by any real signal.
-- MF-2 (direction inverted): margin > 0 (the ranker disagrees with the fixed winner) marks the LEAST
-  reliable selections (~0.29 accuracy), not the most confident ones -- the opposite of what the old
-  code assumed when it retained high-margin rows.
-- MF-3 (wrong comparator scored): `correct` was the controller's own post-override decision, not the
-  fixed comparator's own correctness, despite the manuscript describing this analysis as measuring
-  "the fixed comparator's own errors".
-
-Corrected design: `confidence_scores` is `p_hat_fixed_winner` directly (the ranker's estimated
-probability that the fixed-weight winner is the true target) -- continuous, near-monotonically
-correlated with the fixed comparator's own correctness, with no meaningful tie mass. `correct` is
-the fixed comparator's own correctness (`fused_correct`), reconstructed via the same
-per-outer-fold best-fixed-beta slice `scripts/run_candidate_arbitration.py` uses, not the
-controller's `chosen_candidate`.
-"""
+"""Selective-abstention risk-coverage check: ranks selections by the candidate ranker's confidence signal
+and reports the share of errors captured at each coverage level."""
 from __future__ import annotations
 
 import sys
@@ -49,8 +25,8 @@ def main() -> None:
         print(f"=== {prior_model} ===")
         nested_result = run_nested_loso(prior_model)
         attribution = load_attribution(prior_model)
-        # attribution.parquet itself only carries target_symbol, not target_code (same gap Task 7
-        # found) -- merge target_code in from build_working_frame, which carries both.
+        # attribution.parquet itself only carries target_symbol, not target_code, so
+        # merge target_code in from build_working_frame, which carries both.
         target_code_lookup = build_working_frame(prior_model)[_KEY + ["target_code"]]
         n_before = len(attribution)
         attribution = attribution.merge(target_code_lookup, on=_KEY, how="inner", validate="many_to_one")
@@ -87,8 +63,7 @@ def main() -> None:
         print(table.to_string(index=False))
         print()
 
-        # Empirical sanity check (final-review.md m-8): make the confidence signal's monotonicity
-        # visible and auditable in the committed output itself, not just asserted in a report.
+        # Empirical sanity check: make the confidence signal's monotonicity visible and auditable in the output.
         decile = pd.qcut(confidence_scores, 10, duplicates="drop")
         decile_table = (
             pd.DataFrame({"correct": correct, "decile": decile})

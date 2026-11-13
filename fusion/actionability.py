@@ -1,4 +1,4 @@
-"""Stage 0 of the Route A controller (design spec section 15.2): derive actionability and per-beta
+"""Stage 0 of the Route A controller: derive actionability and per-beta
 counterfactual correctness labels from data that already exists in `attribution.parquet` -- no new
 fusion or posterior computation. `fused_argmax` and `fused_correct` are already columns of the
 long, beta-indexed attribution table for every selection at every beta in `fusion.rescue.BETA_GRID`.

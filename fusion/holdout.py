@@ -1,4 +1,4 @@
-"""The Version 2 addendum's genuine holdout: Study N is touched exactly once, in the final
+"""The genuine holdout for the joint gate: Study N is touched exactly once, in the final
 evaluation task, never during calibration, feature design, the oracle-structure analysis, or gate
 training. Every other task in this plan calls split_dev_test and uses only the dev half.
 """

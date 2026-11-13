@@ -1,0 +1,83 @@
+{
+  "prior": "ngram5_kn",
+  "n_selections": 3373,
+  "seconds": 1413.1,
+  "n_language_model_calls": 2817,
+  "mean_fixed_net_gain": 0.03646605395790098,
+  "mean_adaptive_net_gain": 0.03646605395790098,
+  "diff_adaptive_minus_fixed": 0.0,
+  "n_adaptive_better": 0,
+  "n_fixed_better": 0,
+  "folds": [
+    {
+      "n_test_participants": 9,
+      "fixed_beta": 1.0,
+      "anchor": [
+        1.0,
+        1.0
+      ],
+      "fixed_train_net_gain": 0.0362962962962963,
+      "adaptive_train_net_gain": 0.0362962962962963
+    },
+    {
+      "n_test_participants": 9,
+      "fixed_beta": 1.0,
+      "anchor": [
+        1.0,
+        1.0
+      ],
+      "fixed_train_net_gain": 0.036653091447611995,
+      "adaptive_train_net_gain": 0.036653091447611995
+    },
+    {
+      "n_test_participants": 9,
+      "fixed_beta": 1.0,
+      "anchor": [
+        1.0,
+        1.0
+      ],
+      "fixed_train_net_gain": 0.03958564557898631,
+      "adaptive_train_net_gain": 0.03958564557898631
+    },
+    {
+      "n_test_participants": 10,
+      "fixed_beta": 1.0,
+      "anchor": [
+        1.0,
+        1.0
+      ],
+      "fixed_train_net_gain": 0.03641768859160163,
+      "adaptive_train_net_gain": 0.03641768859160163
+    },
+    {
+      "n_test_participants": 10,
+      "fixed_beta": 1.0,
+      "anchor": [
+        1.0,
+        1.0
+      ],
+      "fixed_train_net_gain": 0.03337041156840934,
+      "adaptive_train_net_gain": 0.03337041156840934
+    }
+  ],
+  "ci_participant": [
+    0.0,
+    0.0
+  ],
+  "ci_crossed": [
+    0.0,
+    0.0
+  ],
+  "fixed_policy_replay": {
+    "beta": 0.5,
+    "decoded_history_fused_correct": 0.7272457752742366,
+    "ground_truth_prefix_fused_correct": 0.8075896827749778,
+    "decoded_history_net_correct_gain": 0.009190631485324638,
+    "ground_truth_prefix_net_correct_gain": 0.08953453898606582,
+    "decoded_minus_ground_truth": {
+      "point": -0.08034390750074119,
+      "lower": -0.10481695079805539,
+      "upper": -0.056647597297245396
+    }
+  }
+}

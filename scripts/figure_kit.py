@@ -1,4 +1,4 @@
-"""Journal-grade matplotlib kit (scientific-figures skill standard).
+"""Matplotlib figure kit.
 Helvetica, colorblind-safe palette, 600 DPI PDF+PNG, no in-figure titles, panel labels, error bars,
 invisible gridlines, top/right spines removed. Import set_style()/save()/panel() and build figures.
 """

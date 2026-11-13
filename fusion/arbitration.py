@@ -1,4 +1,4 @@
-"""The Version 2 arbitration gate (design spec S13.4): predicts the expected net benefit of
+"""The joint arbitration gate: predicts the expected net benefit of
 language-model influence directly (V(x) = P(phantom agreement | x) - P(prior capture | x)) from
 joint neural+LM features, then makes a small, restricted-grid residual adjustment around the
 already-validated best fixed beta, rather than reinventing the fusion policy from an unconstrained
@@ -48,7 +48,7 @@ def _fit_probability_cv(X: np.ndarray, y: np.ndarray, groups: np.ndarray, n_fold
             raise RuntimeError("group leakage across an arbitration-gate CV fold")
         # Joint features mix KL/JS divergence (large, wide-ranging) with probabilities/margins
         # in [0, 1]; unscaled inputs caused convergence/overflow issues in unregularized
-        # LogisticRegression during Task 4's exploratory analysis. Here the resulting
+        # LogisticRegression during exploratory analysis. Here the resulting
         # probabilities feed a numeric threshold comparison downstream (the residual gate), so
         # fit the scaler on the training fold only and apply it to both folds -- never fit on
         # the test fold, to avoid leakage.

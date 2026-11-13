@@ -1,4 +1,4 @@
-"""Round 3 addendum, design spec S14.2 item 3: does the oracle-structure AUROC (0.79/0.81,
+"""Does the oracle-structure AUROC (0.79/0.81,
 scripts/analyze_oracle_structure.py, participant-grouped) survive grouping by linguistic context
 instead of participant? Repeated contexts crossing participant folds could inflate the
 participant-grouped estimate if the same context's near-identical LM posterior appears in both

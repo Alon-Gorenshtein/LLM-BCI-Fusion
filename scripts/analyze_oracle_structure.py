@@ -1,7 +1,6 @@
-"""Version 2 addendum step 2 (design spec S13.3): does the grid oracle's chosen beta have any
+"""Joint gate, step 2: does the grid oracle's chosen beta have any
 learnable structure against joint neural+LM features? This is the go/no-go checkpoint -- if the
-out-of-fold macro one-vs-rest AUROC for predicting the oracle's beta class does not exceed 0.55
-(Global Constraints in the plan this script implements), the addendum stops here and reports a null
+out-of-fold macro one-vs-rest AUROC for predicting the oracle's beta class does not exceed 0.55, the analysis stops here and reports a null
 structure finding rather than proceeding to build a gate on noise. Dev-only: Study N is never read
 here (fusion.holdout.split_dev_test).
 """
@@ -88,5 +87,5 @@ def oracle_structure_auroc(prior_model: str, n_folds: int = 5) -> dict:
 if __name__ == "__main__":
     for prior in ["gpt2", "ngram5_kn"]:
         result = oracle_structure_auroc(prior)
-        decision = "PROCEED to Task 5" if result["macro_ovr_auroc"] > GO_NO_GO_THRESHOLD else "STOP -- no learnable structure"
+        decision = "PROCEED" if result["macro_ovr_auroc"] > GO_NO_GO_THRESHOLD else "STOP -- no learnable structure"
         print(f"{prior}: macro OvR AUROC = {result['macro_ovr_auroc']:.3f} ({result['n_selections']} selections) -> {decision}")
